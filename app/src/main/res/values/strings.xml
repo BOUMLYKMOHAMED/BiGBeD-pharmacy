@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">BiGBeD Pharmacie</string>
+    <string name="email">Email</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="m_moriser">Mémoriser</string>
+    <string name="mot_de_passe_oubli">Mot de passe oublié ?</string>
+    <string name="connexion">Connexion</string>
+    <string name="privacy">Politique de confidentialité</string>
+    <string name="s_inscrire">S\'inscrire</string>
 </resources>
