@@ -37,7 +37,7 @@
                 app:srcCompat="@drawable/profile" />
 
             <EditText
-                android:id="@+id/FullName"
+                android:id="@+id/PFullName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -49,7 +49,6 @@
                 android:inputType="text" />
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -62,7 +61,7 @@
                 app:srcCompat="@drawable/emailicon" />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/Pemail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -86,7 +85,7 @@
                 app:srcCompat="@drawable/telephone" />
 
             <EditText
-                android:id="@+id/telephone"
+                android:id="@+id/Ptelephone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -110,7 +109,7 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/cityicon" />
             <EditText
-                android:id="@+id/ville"
+                android:id="@+id/Pville"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -133,7 +132,7 @@
                 android:layout_weight="1"
                 app:srcCompat="@drawable/localicon" />
             <EditText
-                android:id="@+id/nord"
+                android:id="@+id/Plongitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -143,7 +142,7 @@
                 android:ems="5"
                 android:hint="@string/nord"/>
             <EditText
-                android:id="@+id/sud"
+                android:id="@+id/Platitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -167,7 +166,7 @@
                 app:srcCompat="@drawable/passwordicon" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/Ppassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -191,7 +190,7 @@
                 app:srcCompat="@drawable/passwordicon" />
 
             <EditText
-                android:id="@+id/passwordConfi"
+                android:id="@+id/PpasswordConfi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -203,7 +202,7 @@
                 android:inputType="textPassword"/>
         </LinearLayout>
         <TextView
-            android:id="@+id/valider"
+            android:id="@+id/Pvalider"
             android:layout_width="350dp"
             android:layout_marginTop="24dp"
             android:layout_height="wrap_content"
@@ -230,7 +229,7 @@
             android:textColor="#011302"
             />
         <TextView
-            android:id="@+id/Se_connecter"
+            android:id="@+id/PSe_connecter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -241,6 +240,13 @@
             android:textStyle="bold"
             android:text="@string/se_connecter"/>
     </LinearLayout>
+    <ProgressBar
+        android:id="@+id/PprogressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"/>
 
 
 </RelativeLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "867384026456",
+    "project_id": "bigbed-pharmacie",
+    "storage_bucket": "bigbed-pharmacie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867384026456:android:7c967734607156b406f12d",
+        "android_client_info": {
+          "package_name": "master.STRI.bigbedpharmacie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867384026456-81podriao3ig64fbhu8mlctrrr23l7nl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnGXk2NHpFZAku8YIWnuVvDiVCrkhi054"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "867384026456-81podriao3ig64fbhu8mlctrrr23l7nl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
