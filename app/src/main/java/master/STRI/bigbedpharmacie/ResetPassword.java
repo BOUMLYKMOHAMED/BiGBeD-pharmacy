@@ -1,6 +1,7 @@
 package master.STRI.bigbedpharmacie;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -30,6 +31,7 @@ public class ResetPassword extends AppCompatActivity {
         setContentView(R.layout.activity_reset_password);
 
         fAuth=FirebaseAuth.getInstance();
+
 
         envoyer=(TextView)findViewById(R.id.envoyer);
         Resetemail=(EditText)findViewById(R.id.ResetEmail);

@@ -1,11 +1,14 @@
 package master.STRI.bigbedpharmacie;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -43,6 +46,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         passwordForget=(TextView)findViewById(R.id.passwordForget);
         passwordForget.setOnClickListener(this);
         progressBar=(ProgressBar)findViewById(R.id.IprogressBar);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main_activity,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id=item.getItemId();
+        switch (id){
+            case R.id.langage:
+
+
+
+                //// a faire
+                break;
+
+
+
+            case R.id.about_us:
+                startActivity(new Intent(this,AboutUsActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -91,7 +120,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            if (task.isSuccessful()){
                progressBar.setVisibility(View.INVISIBLE);
                Toast.makeText(this,"bien aurtentifie",Toast.LENGTH_LONG).show();
+
+
+
                // a faire
+
+
            }
            else{
                error.setVisibility(View.VISIBLE);

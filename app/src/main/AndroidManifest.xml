@@ -9,10 +9,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BiGBeDPharmacie">
-        <activity android:name=".ResetPassword"></activity>
-        <activity android:name=".RegisterPharmacie" />
-        <activity android:name=".RegisterClient" />
-        <activity android:name=".EspaceActivity" />
+        <activity android:name=".AboutUsActivity"></activity>
+        <activity
+            android:name=".ResetPassword"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="master.STRI.bigbedpharmacie.MainActivity" />
+        </activity>
+        <activity
+            android:name=".RegisterPharmacie"
+            android:label="@string/espace_pharmacie"
+            android:parentActivityName=".EspaceActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="master.STRI.bigbedpharmacie.EspaceActivity" />
+        </activity>
+        <activity
+            android:name=".RegisterClient"
+            android:label="@string/espace_client"
+            android:parentActivityName=".EspaceActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="master.STRI.bigbedpharmacie.EspaceActivity" />
+        </activity>
+        <activity
+            android:name=".EspaceActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="master.STRI.bigbedpharmacie.MainActivity" />
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

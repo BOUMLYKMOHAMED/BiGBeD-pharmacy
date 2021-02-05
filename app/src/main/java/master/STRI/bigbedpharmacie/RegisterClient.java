@@ -1,5 +1,6 @@
 package master.STRI.bigbedpharmacie;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.MediaRouteButton;
@@ -7,6 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -67,6 +70,30 @@ public class RegisterClient extends AppCompatActivity implements View.OnClickLis
         }
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main_activity,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id=item.getItemId();
+        switch (id){
+            case R.id.langage:
+
+
+                //// a faire
+                break;
+
+
+
+            case R.id.about_us:
+                startActivity(new Intent(this,AboutUsActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private void registerClient() {
         String mEmail=email.getText().toString().trim();
@@ -126,7 +153,9 @@ public class RegisterClient extends AppCompatActivity implements View.OnClickLis
                         Log.d(getAttributionTag(),"le profile de client"+ userId + " est bien crée");
                     }
                 });
-                /// profile de user add
+
+
+                /// a faire
 
                 progressBar.setVisibility(View.INVISIBLE);
             }
