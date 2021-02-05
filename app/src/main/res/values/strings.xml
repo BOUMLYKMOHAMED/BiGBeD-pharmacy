@@ -30,6 +30,7 @@
     <string name="latitude_empty">latitude es obligé</string>
     <string name="longitude_empty">entrer longitude</string>
     <string name="ville_empty">entrer la ville</string>
+    <string name="message_error_auth">Email ou mot de passe est incorrect ? </string>
 
 
 </resources>

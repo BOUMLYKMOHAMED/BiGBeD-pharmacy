@@ -88,6 +88,9 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
         String mlatitude=latitude.getText().toString();
         String mlongitude=longitude.getText().toString();
         String mville=ville.getText().toString();
+        double Latitude=Double.parseDouble(mlatitude);
+        double Longitude=Double.parseDouble(mlongitude);
+
 
 
         if (mFullname.isEmpty()){
@@ -136,15 +139,15 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
             if (task.isSuccessful()){
                 Toast.makeText(this,getText(R.string.userCreate).toString(),Toast.LENGTH_SHORT).show();
                 userId=fAuth.getCurrentUser().getUid();
-               // Pharmacy_info user=new Pharmacy_info(mFullname,mEmail,mphone,mville,mlatitude,mlongitude);
+               Pharmacy_info user=new Pharmacy_info(mFullname,mEmail,mphone,mville,Latitude,Longitude);
                 DocumentReference documentReference=fstore.collection("Pharmacies").document(userId);
                 Map<String,Object> client= new HashMap<>();
-                client.put("fullName",mFullname);
-                client.put("Email",mEmail);
-                client.put("phone",mphone);
-                client.put("ville",mville);
-                client.put("latitude",mlatitude);
-                client.put("longitude",mlongitude);
+                client.put("fullName",user.getFullName());
+                client.put("Email",user.getEmail());
+                client.put("phone",user.getTelephone());
+                client.put("ville",user.getVille());
+                client.put("latitude",user.getLatitude());
+                client.put("longitude",user.getLongitude());
                 documentReference.set(client).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
