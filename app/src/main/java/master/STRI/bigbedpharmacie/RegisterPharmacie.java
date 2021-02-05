@@ -88,55 +88,62 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
         String mlatitude=latitude.getText().toString();
         String mlongitude=longitude.getText().toString();
         String mville=ville.getText().toString();
-        double Latitude=Double.parseDouble(mlatitude);
-        double Longitude=Double.parseDouble(mlongitude);
-
-
-
         if (mFullname.isEmpty()){
             fullName.setError(getText(R.string.name_empty).toString());
             fullName.requestFocus();
+            return;
         }
         if (mEmail.isEmpty()){
             email.setError(getText(R.string.email_empty).toString());
             email.requestFocus();
+            return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(mEmail).matches()){
             email.setError(getText(R.string.email_error).toString());
             email.requestFocus();
+            return;
         }
         if(mphone.isEmpty()){
             phone.setError(getText(R.string.tel_empty).toString());
             phone.requestFocus();
-        }
-        if(mlatitude.isEmpty()){
-            latitude.setError(getText(R.string.latitude_empty).toString());
-            latitude.requestFocus();
-        }
-        if(mlongitude.isEmpty()){
-            longitude.setError(getText(R.string.longitude_empty).toString());
-            longitude.requestFocus();
+            return;
         }
         if(mville.isEmpty()){
             ville.setError(getText(R.string.ville_empty).toString());
             ville.requestFocus();
+            return;
+        }
+        if(mlongitude.isEmpty()){
+            longitude.setError(getText(R.string.longitude_empty).toString());
+            longitude.requestFocus();
+            return;
+        }
+        if(mlatitude.isEmpty()){
+            latitude.setError(getText(R.string.latitude_empty).toString());
+            latitude.requestFocus();
+            return;
         }
 
         if (mpassword.isEmpty()){
             password.setError(getText(R.string.password_empty).toString());
             password.requestFocus();
+            return;
         }
         if (mpassword.length()<6){
             password.setError(getText(R.string.password_small));
             password.requestFocus();
+            return;
         }
         if(mcopassword.isEmpty() || !mcopassword.equals(mpassword)){
             copassword.setError(getText(R.string.password_incorect).toString());
             copassword.requestFocus();
+            return;
         }
         progressBar.setVisibility(View.VISIBLE);
         fAuth.createUserWithEmailAndPassword(mEmail,mpassword).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
+                double Latitude=Double.parseDouble(mlatitude);
+                double Longitude=Double.parseDouble(mlongitude);
                 Toast.makeText(this,getText(R.string.userCreate).toString(),Toast.LENGTH_SHORT).show();
                 userId=fAuth.getCurrentUser().getUid();
                Pharmacy_info user=new Pharmacy_info(mFullname,mEmail,mphone,mville,Latitude,Longitude);

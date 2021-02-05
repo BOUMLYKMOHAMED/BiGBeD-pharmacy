@@ -125,6 +125,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -140,7 +145,19 @@
                 android:layout_marginLeft="4dp"
                 android:layout_weight="1"
                 android:ems="5"
-                android:hint="@string/nord"/>
+                android:hint="@string/longitude"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/localicon" />
             <EditText
                 android:id="@+id/Platitude"
                 android:layout_width="wrap_content"
@@ -150,7 +167,8 @@
                 android:layout_marginLeft="4dp"
                 android:layout_weight="1"
                 android:ems="5"
-                android:hint="@string/sud"/>
+                android:hint="@string/latitude"/>
+        </LinearLayout>
 
         </LinearLayout>
         <LinearLayout

@@ -77,30 +77,37 @@ public class RegisterClient extends AppCompatActivity implements View.OnClickLis
         if (mFullname.isEmpty()){
             fullName.setError(getText(R.string.name_empty).toString());
             fullName.requestFocus();
+            return;
         }
         if (mEmail.isEmpty()){
             email.setError(getText(R.string.email_empty).toString());
             email.requestFocus();
+            return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(mEmail).matches()){
             email.setError(getText(R.string.email_error).toString());
             email.requestFocus();
+            return;
         }
         if(mphone.isEmpty()){
             phone.setError(getText(R.string.tel_empty).toString());
             phone.requestFocus();
+            return;
         }
         if (mpassword.isEmpty()){
             password.setError(getText(R.string.password_empty).toString());
             password.requestFocus();
+            return;
         }
         if (mpassword.length()<6){
             password.setError(getText(R.string.password_small));
             password.requestFocus();
+            return;
         }
         if(mcopassword.isEmpty() || !mcopassword.equals(mpassword)){
             copassword.setError(getText(R.string.password_incorect).toString());
             copassword.requestFocus();
+            return;
         }
         progressBar.setVisibility(View.VISIBLE);
         fAuth.createUserWithEmailAndPassword(mEmail,mpassword).addOnCompleteListener(task -> {

@@ -18,7 +18,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText email,password;
-    private TextView signin, signup,error;
+    private TextView signin, signup,error,passwordForget;
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         signin.setOnClickListener(this);
         signup=(TextView)findViewById(R.id.inscrire);
         signup.setOnClickListener(this);
+        passwordForget=(TextView)findViewById(R.id.passwordForget);
+        passwordForget.setOnClickListener(this);
         progressBar=(ProgressBar)findViewById(R.id.IprogressBar);
     }
 
@@ -52,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.inscrire:
                 startActivity(new Intent(this,EspaceActivity.class));
                 break;
+            case R.id.passwordForget:
+                startActivity(new Intent(this,ResetPassword.class));
+                break;
         }
 
     }
@@ -63,18 +68,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (mEmail.isEmpty()){
             email.setError(getText(R.string.email_empty).toString());
             email.requestFocus();
+            return;
         }
         if (!Patterns.EMAIL_ADDRESS.matcher(mEmail).matches()){
             email.setError(getText(R.string.email_error).toString());
             email.requestFocus();
+            return;
         }
         if (mpassword.isEmpty()){
             password.setError(getText(R.string.password_empty).toString());
             password.requestFocus();
+            return;
         }
         if (mpassword.length()<6){
             password.setError(getText(R.string.password_small));
             password.requestFocus();
+            return;
         }
 
         progressBar.setVisibility(View.VISIBLE);

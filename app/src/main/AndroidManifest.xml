@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BiGBeDPharmacie">
-        <activity android:name=".RegisterPharmacie"></activity>
+        <activity android:name=".ResetPassword"></activity>
+        <activity android:name=".RegisterPharmacie" />
         <activity android:name=".RegisterClient" />
         <activity android:name=".EspaceActivity" />
         <activity android:name=".MainActivity">
