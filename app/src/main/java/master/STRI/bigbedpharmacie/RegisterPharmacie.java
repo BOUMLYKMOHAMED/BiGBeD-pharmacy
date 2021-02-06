@@ -171,9 +171,10 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
             if (task.isSuccessful()){
                 double Latitude=Double.parseDouble(mlatitude);
                 double Longitude=Double.parseDouble(mlongitude);
+                boolean status=false;
                 Toast.makeText(this,getText(R.string.userCreate).toString(),Toast.LENGTH_SHORT).show();
                 userId=fAuth.getCurrentUser().getUid();
-               Pharmacy_info user=new Pharmacy_info(mFullname,mEmail,mphone,mville,Latitude,Longitude);
+               Pharmacy_info user=new Pharmacy_info(mFullname,mEmail,mphone,mville,Latitude,Longitude,status);
                 DocumentReference documentReference=fstore.collection("Pharmacies").document(userId);
                 Map<String,Object> client= new HashMap<>();
                 client.put("fullName",user.getFullName());
@@ -182,6 +183,7 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
                 client.put("ville",user.getVille());
                 client.put("latitude",user.getLatitude());
                 client.put("longitude",user.getLongitude());
+                client.put("status",user.getPstatus());
                 documentReference.set(client).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -189,6 +191,7 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
                     }
                 });
 
+                progressBar.setVisibility(View.INVISIBLE);
 
                 /// a faire
 

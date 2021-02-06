@@ -36,6 +36,9 @@
     <string name="envoyer">Envoyer</string>
     <string name="language">Language</string>
     <string name="qui_somme_nous">Qui Somme Nous</string>
+    <string name="messanger">Messanger</string>
+    <string name="ajouter_un_service">Ajouter un service</string>
+    <string name="status">Status</string>
 
 
 </resources>
