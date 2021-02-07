@@ -4,12 +4,112 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ServiceFragment">
-
-    <TextView
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="service fragmnt" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/pip_back"
+        android:layout_margin="8dp"
+        android:padding="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ajouter_un_m_dicament"
+            android:padding="8dp"
+            android:textStyle="italic"
+            android:textSize="15sp"/>
+        <EditText
+            android:id="@+id/ajouterMedicament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/nom"
+            android:padding="8dp"
+            android:background="@drawable/pip_back"
+            android:textStyle="italic"
+            android:inputType="textAutoComplete"
+            android:ems="14"
+            android:textSize="15sp"/>
+        <EditText
+            android:id="@+id/ajouterMedicamentDescription"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="@string/description"
+            android:padding="8dp"
+            android:gravity="top"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/pip_back"
+            android:textStyle="italic"
+            android:textSize="15sp"/>
+        <TextView
+            android:id="@+id/AjouterBMedicament"
+            android:layout_width="137dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/button_background"
+            android:gravity="center"
+            android:text="@string/ajouter"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_gravity="right"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/pip_back"
+            android:layout_margin="8dp"
+            android:padding="8dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ajouter_un_service"
+                android:padding="8dp"
+                android:textStyle="italic"
+                android:textSize="15sp"/>
+            <EditText
+                android:id="@+id/ajouterService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pip_back"
+                android:hint="@string/nom"
+                android:padding="8dp"
+                android:textStyle="italic"
+                android:inputType="textAutoComplete"
+                android:ems="14"
+                android:textSize="15sp"/>
+            <EditText
+                android:id="@+id/ajouterServiceDescription"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:hint="@string/description"
+                android:padding="8dp"
+                android:gravity="top"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/pip_back"
+                android:textStyle="italic"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/AjouterBService"
+                android:layout_width="137dp"
+                android:layout_height="43dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button_background"
+                android:gravity="center"
+                android:text="@string/ajouter"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_gravity="right"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
 
 </FrameLayout>
