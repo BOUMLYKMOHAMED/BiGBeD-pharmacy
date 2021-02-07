@@ -39,6 +39,15 @@
     <string name="messanger">Message</string>
     <string name="ajouter_un_service">Ajouter un service</string>
     <string name="status">Statut</string>
+    <string name="fermer">Fermer</string>
+    <string name="ouvert">Ouvert</string>
+    <string name="message_pour_pharmacie">S\'il vous plait n\'oublier pas de cliquer sur fermée lorsque la pharmacie n\'est pas disponible</string>
+    <string name="merci">Merci</string>
+    <string name="l_agence_est_fermer">l\'agence est fermée a ce moment</string>
+    <string name="l_agence_est_ouvert">l\'agence est ouvert a ce moment</string>
+    <string name="ajouter_un_m_dicament">Ajouter un médicament</string>
+    <string name="description">Description ...</string>
+    <string name="ajouter">Ajouter</string>
 
 
 </resources>
