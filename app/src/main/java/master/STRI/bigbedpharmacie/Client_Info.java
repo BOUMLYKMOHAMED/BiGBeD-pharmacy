@@ -1,6 +1,7 @@
 package master.STRI.bigbedpharmacie;
 
 public class Client_Info {
+
     private String fullName,email,Telephone;
     public Client_Info(){}
     public Client_Info(String fullName,String email,String Telephone){

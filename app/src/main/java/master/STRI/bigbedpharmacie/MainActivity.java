@@ -1,6 +1,7 @@
 package master.STRI.bigbedpharmacie;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -60,9 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (id){
             case R.id.langage:
 
+                 //// a faire
 
-
-                //// a faire
                 break;
 
 
@@ -121,8 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                progressBar.setVisibility(View.INVISIBLE);
                Toast.makeText(this,"bien aurtentifie",Toast.LENGTH_LONG).show();
 
-
-
+               startActivity(new Intent(this,PharmacieProfile.class));
                // a faire
 
 

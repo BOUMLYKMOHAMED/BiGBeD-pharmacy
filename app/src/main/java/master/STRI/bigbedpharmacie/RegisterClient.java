@@ -82,8 +82,8 @@ public class RegisterClient extends AppCompatActivity implements View.OnClickLis
         switch (id){
             case R.id.langage:
 
-
                 //// a faire
+
                 break;
 
 
