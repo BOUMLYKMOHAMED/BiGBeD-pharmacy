@@ -17,8 +17,8 @@
     <string name="confirmer_le_mot_de_passe">Confirmer le mot de passe</string>
     <string name="valider">Valider</string>
     <string name="ville">Ville</string>
-    <string name="longitude">Longitude</string>
-    <string name="latitude">Latitude</string>
+    <string name="longitude" translatable="false">Longitude</string>
+    <string name="latitude" translatable="false">Latitude</string>
     <string name="email_empty">Remplissez votre Email !</string>
     <string name="email_error">Email est invalide !</string>
     <string name="name_empty">Remplissez votre nom !</string>
@@ -35,17 +35,10 @@
     <string name="avoir_un_nouveau_mot_de_passe">Entrer votre Email pour un nouveau mot de passe</string>
     <string name="envoyer">Envoyer</string>
     <string name="language">Langage</string>
-    <string name="qui_somme_nous">Qui Somme Nous</string>
+    <string name="qui_somme_nous">Qui Somme Nous ?</string>
     <string name="messanger">Message</string>
     <string name="ajouter_un_service">Ajouter un service</string>
     <string name="status">Statut</string>
-    <string name="fermer">Fermer</string>
-    <string name="ouvert">Ouvert</string>
-    <string name="message_pour_pharmacie">S\'il vous plait n\'oublier pas de cliquer sur fermée lorsque la pharmacie n\'est pas disponible</string>
-    <string name="merci">Merci</string>
-    <string name="l_agence_est_fermer">l\'agence est fermée a ce moment</string>
-    <string name="l_agence_est_ouvert">l\'agence est ouvert a ce moment</string>
-    <string name="ajouter_un_m_dicament">Ajouter un médicament</string>
     <string name="description">Description ...</string>
     <string name="ajouter">Ajouter</string>
     <string name="service_ajouter">La service est ajouter avec succée</string>
@@ -53,6 +46,12 @@
     <string name="medicamen_empty">Entrer le nom de medicament</string>
     <string name="Description_empty">Entrer la description</string>
     <string name="service_empty">Entrer le nom du service</string>
-
+    <string name="fermer">Fermé</string>
+    <string name="ouvert">Ouvert</string>
+    <string name="message_pour_pharmacie">S\'il vous plait n\'oublier pas de cliquer sur fermée lorsque la pharmacie n\'est pas disponible !</string>
+    <string name="merci">Merci.</string>
+    <string name="l_agence_est_fermer">La pharmacie est fermée à ce moment</string>
+    <string name="l_agence_est_ouvert">La pharmacie est ouvert à ce moment</string>
+    <string name="ajouter_un_m_dicament">Ajouter un médicament</string>
 
 </resources>

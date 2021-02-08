@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BiGBeD Pharmacie</string>
+    <string name="email">"E-mail  "</string>
+    <string name="mot_de_passe">"Password  "</string>
+    <string name="m_moriser">"Memorize  "</string>
+    <string name="mot_de_passe_oubli">"Forgot your password ?  "</string>
+    <string name="connexion">"Log in  "</string>
+    <string name="privacy">"Privacy Policy "</string>
+    <string name="s_inscrire">"Register  "</string>
+    <string name="espace_client">"Client area  "</string>
+    <string name="d_j_inscrire">Already registered ?</string>
+    <string name="se_connecter">Log in</string>
+    <string name="espace_pharmacie">"Pharmacy area "</string>
+    <string name="bienvenu">Welcome</string>
+    <string name="nom">Last name</string>
+    <string name="Tele">Phone number</string>
+    <string name="confirmer_le_mot_de_passe">Confirm password</string>
+    <string name="valider">Validate</string>
+    <string name="ville">City</string>
+    <string name="email_empty">Fill in your E-mail</string>
+    <string name="email_error">E-mail is invalid !</string>
+    <string name="name_empty">Fill in your name !</string>
+    <string name="tel_empty">Phone number is required !</string>
+    <string name="password_empty">Enter your password !</string>
+    <string name="password_incorect">"Confirm your password "</string>
+    <string name="password_small">Password is weak !</string>
+    <string name="userCreate">"Success registration  "</string>
+    <string name="latitude_empty">"Latitude is required "</string>
+    <string name="ville_empty">Enter your city</string>
+    <string name="message_error_auth">E-mail or password is incorrect !</string>
+    <string name="entrer_votre_email">Enter your E-mail</string>
+    <string name="avoir_un_nouveau_mot_de_passe">Enter your Email for a new password</string>
+    <string name="envoyer">Send</string>
+    <string name="language">Language</string>
+    <string name="qui_somme_nous">Who are we ?</string>
+    <string name="messanger">Message</string>
+    <string name="ajouter_un_service">Add a service</string>
+    <string name="status">Status</string>
+    <string name="fermer">Closed</string>
+    <string name="ouvert">Open</string>
+    <string name="message_pour_pharmacie">Please don\'t forget to click closed when the pharmacy is not available!</string>
+    <string name="merci">Thank you.</string>
+    <string name="l_agence_est_fermer">The pharmacy is closed at this time</string>
+    <string name="l_agence_est_ouvert">The pharmacy is open at this time</string>
+    <string name="ajouter_un_m_dicament">Add medication</string>
+    <string name="description">Description ...</string>
+    <string name="ajouter">Add</string>
+    <!-- -->
+    <string name="longitude_empty">Enter longitude</string>
+    <string name="service_ajouter">La service est ajouter avec succée</string>
+    <string name="medicament_ajouter">Le Medicament est ajouter avec succée</string>
+    <string name="medicamen_empty">Entrer le nom de medicament</string>
+    <string name="Description_empty">Entrer la description</string>
+    <string name="service_empty">Entrer le nom du service</string>
+</resources>

@@ -2,7 +2,10 @@ package master.STRI.bigbedpharmacie;
 
 import android.os.Bundle;
 
+<<<<<<< HEAD
 import androidx.annotation.NonNull;
+=======
+>>>>>>> e772c27a7e7062dcbdff167eacbbd9edd1be0c7d
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatCallback;
@@ -11,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +33,13 @@ public class ServiceFragment extends Fragment {
 
   private FirebaseAuth auth;
   private FirebaseFirestore fstore;
+=======
+import android.widget.TextView;
+
+public class ServiceFragment extends Fragment {
+
+
+>>>>>>> e772c27a7e7062dcbdff167eacbbd9edd1be0c7d
 
     public ServiceFragment() {
         // Required empty public constructor
@@ -40,6 +51,7 @@ public class ServiceFragment extends Fragment {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_service, container, false);
 
+<<<<<<< HEAD
         fstore=FirebaseFirestore.getInstance();
         auth=FirebaseAuth.getInstance();
 
@@ -116,4 +128,33 @@ public class ServiceFragment extends Fragment {
 
         return view;
     }
+=======
+
+        TextView On=(TextView)view.findViewById(R.id.FOn);
+        TextView Off=(TextView)view.findViewById(R.id.FOff);
+        TextView textStatus=(TextView)view.findViewById(R.id.textStatus);
+/*
+        On.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //On.setBackgroundResource(R.color.ouvert);
+                //Off.setBackgroundResource(R.color.fermee);
+                textStatus.setText(R.string.l_agence_est_ouvert);
+            }
+        });
+        Off.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Off.setBackgroundResource(R.color.ouvert);
+                //On.setBackgroundResource(R.color.fermee);
+                textStatus.setText(R.string.l_agence_est_fermer);
+            }
+        });
+
+ */
+
+        return view;
+    }
+
+>>>>>>> e772c27a7e7062dcbdff167eacbbd9edd1be0c7d
 }
