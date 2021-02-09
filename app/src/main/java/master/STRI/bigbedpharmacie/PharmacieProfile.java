@@ -1,10 +1,17 @@
 package master.STRI.bigbedpharmacie;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,6 +22,7 @@ public class PharmacieProfile extends AppCompatActivity {
 
 
 
+    DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,5 +57,48 @@ public class PharmacieProfile extends AppCompatActivity {
         tabLayoutMediator.attach();
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_pharmacie,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id=item.getItemId();
+        switch (id){
+            case R.id.langage:
+
+                //// a faire
+
+                break;
+
+            case R.id.aide:
+
+                // a faire
+
+                break;
+
+            case R.id.profile:
+
+                // a faire
+
+                break;
+
+            case R.id.log_out:
+
+
+                 // a faire
+
+                break;
+
+            case R.id.about_us:
+                startActivity(new Intent(this,AboutUsActivity.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
 }

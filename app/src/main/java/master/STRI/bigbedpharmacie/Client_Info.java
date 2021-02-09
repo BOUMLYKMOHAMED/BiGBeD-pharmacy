@@ -1,6 +1,19 @@
 package master.STRI.bigbedpharmacie;
 
+import com.google.firebase.firestore.Exclude;
+
 public class Client_Info {
+
+
+    @Exclude private String userId;
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
     private String fullName,email,Telephone;
     public Client_Info(){}

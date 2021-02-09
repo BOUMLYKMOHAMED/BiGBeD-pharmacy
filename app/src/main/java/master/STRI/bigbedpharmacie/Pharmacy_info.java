@@ -1,6 +1,20 @@
 package master.STRI.bigbedpharmacie;
 
+import com.google.firebase.firestore.Exclude;
+
 public class Pharmacy_info {
+
+    @Exclude
+    private String parmacieId;
+
+    public String getParmacieId() {
+        return parmacieId;
+    }
+
+    public void setParmacieId(String parmacieId) {
+        this.parmacieId = parmacieId;
+    }
+
     private String fullName, email, Telephone, ville;
     private double latitude, longitude;
     private boolean pstatus;

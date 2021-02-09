@@ -74,5 +74,14 @@
             tools:ignore="RtlHardcoded" />
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        />
+
 
 </FrameLayout>

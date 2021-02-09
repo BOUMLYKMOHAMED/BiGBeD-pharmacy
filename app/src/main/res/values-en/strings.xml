@@ -53,4 +53,14 @@
     <string name="medicamen_empty">Entrer le nom de medicament</string>
     <string name="Description_empty">Entrer la description</string>
     <string name="service_empty">Entrer le nom du service</string>
+    <string name="message_update">Votre status est update</string>
+    <string name="help">help</string>
+    <string name="share">Share</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="log_out">Log out</string>
+    <string name="profile">Profile</string>
 </resources>
