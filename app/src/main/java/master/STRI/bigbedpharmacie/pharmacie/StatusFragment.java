@@ -1,4 +1,4 @@
-package master.STRI.bigbedpharmacie;
+package master.STRI.bigbedpharmacie.pharmacie;
 
 import android.os.Bundle;
 
@@ -21,6 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import master.STRI.bigbedpharmacie.R;
 
 public class StatusFragment extends Fragment {
 

@@ -3,13 +3,15 @@ package master.STRI.bigbedpharmacie;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+
+import master.STRI.bigbedpharmacie.client.RegisterClient;
+import master.STRI.bigbedpharmacie.pharmacie.RegisterPharmacie;
 
 public class EspaceActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -57,10 +59,10 @@ public class EspaceActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.Espace_client:
-                startActivity(new Intent(this,RegisterClient.class));
+                startActivity(new Intent(this, RegisterClient.class));
                 break;
             case R.id.Espace_pharmacie:
-                startActivity(new Intent(this,RegisterPharmacie.class));
+                startActivity(new Intent(this, RegisterPharmacie.class));
                 break;
             case R.id.ESe_connecter:
                 startActivity(new Intent(this,MainActivity.class));

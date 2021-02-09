@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BiGBeDPharmacie">
         <activity
+            android:name=".client.ClientProfile"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.BiGBeDPharmacie.NoActionBar"></activity>
+        <activity
             android:name=".Menu_bar"
             android:theme="@style/Theme.Design.NoActionBar" />
-        <activity android:name=".PharmacieProfile"
-            />
+        <activity android:name=".pharmacie.PharmacieProfile" />
         <activity android:name=".AboutUsActivity" />
         <activity
             android:name=".ResetPassword"
@@ -23,7 +26,7 @@
                 android:value="master.STRI.bigbedpharmacie.MainActivity" />
         </activity>
         <activity
-            android:name=".RegisterPharmacie"
+            android:name=".pharmacie.RegisterPharmacie"
             android:label="@string/espace_pharmacie"
             android:parentActivityName=".EspaceActivity">
             <meta-data
@@ -31,7 +34,7 @@
                 android:value="master.STRI.bigbedpharmacie.EspaceActivity" />
         </activity>
         <activity
-            android:name=".RegisterClient"
+            android:name=".client.RegisterClient"
             android:label="@string/espace_client"
             android:parentActivityName=".EspaceActivity">
             <meta-data

@@ -1,7 +1,6 @@
 package master.STRI.bigbedpharmacie;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -16,8 +15,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import master.STRI.bigbedpharmacie.client.ClientProfile;
+import master.STRI.bigbedpharmacie.pharmacie.PharmacieProfile;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         password=(EditText)findViewById(R.id.password);
 
         fAuth=FirebaseAuth.getInstance();
+        fStore=FirebaseFirestore.getInstance();
         error=(TextView)findViewById(R.id.error);
 
         signin=(TextView)findViewById(R.id.connexionB);
@@ -120,10 +125,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            if (task.isSuccessful()){
                progressBar.setVisibility(View.INVISIBLE);
                Toast.makeText(this,"bien aurtentifie",Toast.LENGTH_LONG).show();
+               String userid=fAuth.getCurrentUser().getUid();
 
-               startActivity(new Intent(this,PharmacieProfile.class));
-               // a faire
+               fStore.collection("Pharmacie").document(userid).
+                       get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                   @Override
+                   public void onSuccess(DocumentSnapshot documentSnapshot) {
+                       if (documentSnapshot.get("ville")!=null){
+                           startActivity(new Intent(MainActivity.this, PharmacieProfile.class));
+                       }
+                       else{
+                           startActivity(new Intent(MainActivity.this, ClientProfile.class));
+                       }
 
+                   }
+               });
 
            }
            else{

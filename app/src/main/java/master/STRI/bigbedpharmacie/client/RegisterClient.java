@@ -1,4 +1,4 @@
-package master.STRI.bigbedpharmacie;
+package master.STRI.bigbedpharmacie.client;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,65 +23,56 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegisterPharmacie extends AppCompatActivity implements View.OnClickListener {
+import master.STRI.bigbedpharmacie.AboutUsActivity;
+import master.STRI.bigbedpharmacie.MainActivity;
+import master.STRI.bigbedpharmacie.R;
+
+public class RegisterClient extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fstore;
     private ProgressBar progressBar;
 
-    private EditText fullName, email,phone,password,copassword,longitude,latitude,ville;
+    private EditText fullName, email,phone,password,copassword;
     private TextView valide, seconnecter;
     String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_pharmacie);
-
+        setContentView(R.layout.activity_register_client);
         // initialize the firebase and firestore
         fAuth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
         // initialize the edit text
 
-        fullName=(EditText)findViewById(R.id.PFullName);
-        email=(EditText)findViewById(R.id.Pemail);
-        phone=(EditText)findViewById(R.id.Ptelephone);
-        password=(EditText)findViewById(R.id.Ppassword);
-        copassword=(EditText)findViewById(R.id.PpasswordConfi);
-        longitude=(EditText)findViewById(R.id.Plongitude);
-        latitude=(EditText)findViewById(R.id.Platitude);
-        ville=(EditText)findViewById(R.id.Pville);
+        fullName=(EditText)findViewById(R.id.CfullName);
+        email=(EditText)findViewById(R.id.Cemail);
+        phone=(EditText)findViewById(R.id.Ctelephone);
+        password=(EditText)findViewById(R.id.Cpassword);
+        copassword=(EditText)findViewById(R.id.CpasswordConfi);
         // initialize the text view
+        progressBar=(ProgressBar)findViewById(R.id.CprogressBar);
 
-        valide=(TextView)findViewById(R.id.Pvalider);
+        valide=(TextView)findViewById(R.id.Cvalider);
         valide.setOnClickListener(this);
-        seconnecter=(TextView)findViewById(R.id.PSe_connecter);
+        seconnecter=(TextView)findViewById(R.id.CSe_connecter);
         seconnecter.setOnClickListener(this);
-
-        progressBar=(ProgressBar)findViewById(R.id.PprogressBar);
-/*
-        if(fAuth.getCurrentUser()!=null){
-            startActivity(new Intent(getApplicationContext(),MainActivity2.class));
-            finish();
-        }
-
- */
 
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.Pvalider:
-                RegisterPharmacy();
+            case R.id.Cvalider:
+                registerClient();
                 break;
-            case R.id.PSe_connecter:
-                startActivity(new Intent(this,MainActivity.class));
+            case R.id.CSe_connecter:
+                startActivity(new Intent(this, MainActivity.class));
                 break;
         }
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main_activity,menu);
@@ -99,22 +90,20 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
                 break;
 
 
+
             case R.id.about_us:
-                startActivity(new Intent(this,AboutUsActivity.class));
+                startActivity(new Intent(this, AboutUsActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void RegisterPharmacy() {
+    private void registerClient() {
         String mEmail=email.getText().toString().trim();
         String mpassword=password.getText().toString().trim();
         String mphone=phone.getText().toString();
         String mFullname=fullName.getText().toString();
         String mcopassword=copassword.getText().toString();
-        String mlatitude=latitude.getText().toString();
-        String mlongitude=longitude.getText().toString();
-        String mville=ville.getText().toString();
         if (mFullname.isEmpty()){
             fullName.setError(getText(R.string.name_empty).toString());
             fullName.requestFocus();
@@ -135,22 +124,6 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
             phone.requestFocus();
             return;
         }
-        if(mville.isEmpty()){
-            ville.setError(getText(R.string.ville_empty).toString());
-            ville.requestFocus();
-            return;
-        }
-        if(mlongitude.isEmpty()){
-            longitude.setError(getText(R.string.longitude_empty).toString());
-            longitude.requestFocus();
-            return;
-        }
-        if(mlatitude.isEmpty()){
-            latitude.setError(getText(R.string.latitude_empty).toString());
-            latitude.requestFocus();
-            return;
-        }
-
         if (mpassword.isEmpty()){
             password.setError(getText(R.string.password_empty).toString());
             password.requestFocus();
@@ -169,21 +142,14 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
         progressBar.setVisibility(View.VISIBLE);
         fAuth.createUserWithEmailAndPassword(mEmail,mpassword).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
-                double Latitude=Double.parseDouble(mlatitude);
-                double Longitude=Double.parseDouble(mlongitude);
-                boolean status=false;
                 Toast.makeText(this,getText(R.string.userCreate).toString(),Toast.LENGTH_SHORT).show();
                 userId=fAuth.getCurrentUser().getUid();
-               Pharmacy_info user=new Pharmacy_info(mFullname,mEmail,mphone,mville,Latitude,Longitude,status);
-                DocumentReference documentReference=fstore.collection("Pharmacies").document(userId);
-                Map<String,Object> client= new HashMap<>();
-                client.put("fullName",user.getFullName());
-                client.put("Email",user.getEmail());
-                client.put("phone",user.getTelephone());
-                client.put("ville",user.getVille());
-                client.put("latitude",user.getLatitude());
-                client.put("longitude",user.getLongitude());
-                client.put("status",user.getPstatus());
+                Client_Info user=new Client_Info(mFullname,mEmail,mphone);
+                DocumentReference documentReference=fstore.collection("Clients").document(userId);
+               Map<String,Object> client= new HashMap<>();
+                         client.put("fullName",user.getFullName());
+                         client.put("Email",user.getEmail());
+                         client.put("phone",user.getTelephone());
                 documentReference.set(client).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -191,15 +157,15 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
                     }
                 });
 
-                progressBar.setVisibility(View.INVISIBLE);
 
                 /// a faire
 
-
+                progressBar.setVisibility(View.INVISIBLE);
             }
             else{
                 Toast.makeText(this,"Erreur !! ",Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.INVISIBLE);
+
             }
 
         });

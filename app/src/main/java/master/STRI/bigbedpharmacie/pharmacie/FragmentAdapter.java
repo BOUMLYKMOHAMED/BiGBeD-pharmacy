@@ -1,9 +1,13 @@
-package master.STRI.bigbedpharmacie;
+package master.STRI.bigbedpharmacie.pharmacie;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+
+import master.STRI.bigbedpharmacie.pharmacie.ChatFragment;
+import master.STRI.bigbedpharmacie.pharmacie.ServiceFragment;
+import master.STRI.bigbedpharmacie.pharmacie.StatusFragment;
 
 public class FragmentAdapter extends FragmentStateAdapter {
 

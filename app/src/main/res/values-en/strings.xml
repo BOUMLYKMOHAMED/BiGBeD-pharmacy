@@ -63,4 +63,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="log_out">Log out</string>
     <string name="profile">Profile</string>
+    <string name="active">Active</string>
+    <string name="inactive">Inactive</string>
 </resources>

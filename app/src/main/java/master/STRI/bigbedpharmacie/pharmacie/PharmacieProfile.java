@@ -1,10 +1,7 @@
-package master.STRI.bigbedpharmacie;
+package master.STRI.bigbedpharmacie.pharmacie;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -12,11 +9,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+
+import master.STRI.bigbedpharmacie.AboutUsActivity;
+import master.STRI.bigbedpharmacie.R;
 
 public class PharmacieProfile extends AppCompatActivity {
 
@@ -93,7 +91,7 @@ public class PharmacieProfile extends AppCompatActivity {
                 break;
 
             case R.id.about_us:
-                startActivity(new Intent(this,AboutUsActivity.class));
+                startActivity(new Intent(this, AboutUsActivity.class));
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -1,4 +1,4 @@
-package master.STRI.bigbedpharmacie;
+package master.STRI.bigbedpharmacie.client;
 
 import com.google.firebase.firestore.Exclude;
 

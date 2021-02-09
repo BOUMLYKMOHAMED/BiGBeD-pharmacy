@@ -1,4 +1,4 @@
-package master.STRI.bigbedpharmacie;
+package master.STRI.bigbedpharmacie.pharmacie;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -14,6 +14,8 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
+
+import master.STRI.bigbedpharmacie.R;
 
 public class ServiceFragment extends Fragment {
 
