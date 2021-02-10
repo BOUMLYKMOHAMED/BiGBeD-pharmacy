@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -52,8 +54,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         passwordForget=(TextView)findViewById(R.id.passwordForget);
         passwordForget.setOnClickListener(this);
         progressBar=(ProgressBar)findViewById(R.id.IprogressBar);
+
     }
 
+    private void showHelpMe() {
+        // Create the intent.
+        Intent helpmeIntent = new Intent(this, HelpActivity.class);
+        // Start the HelpActivity.
+        startActivity(helpmeIntent);
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main_activity,menu);
@@ -65,16 +74,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id=item.getItemId();
         switch (id){
             case R.id.langage:
-
-                 //// a faire
-
+                Intent langageIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(langageIntent);
                 break;
+            //// a faire
 
-
-
-            case R.id.about_us:
-                startActivity(new Intent(this,AboutUsActivity.class));
+            case R.id.help_me:
+                showHelpMe();
                 break;
+            default:
         }
         return super.onOptionsItemSelected(item);
     }
