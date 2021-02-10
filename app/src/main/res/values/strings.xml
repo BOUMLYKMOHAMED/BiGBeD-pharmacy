@@ -71,8 +71,17 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="search_for_medicament">Search for medicament</string>
+<<<<<<< HEAD
     <string name="aide">Aide</string>
     <string name="action_help">Si vous avez besoin d\'aide, cantactez notre service d\'assistance.</string>
     <string name="action_aide">Aide</string>
+=======
+    <string name="action_aide">"aide_acttion "</string>
+    <string name="action_help">help_action</string>
+    <string name="aide_action">Aide</string>
+    <string name="aide">Aide</string>
+    <string name="service_d_assistance">Si vous avez besoin d\'aide, contactez notre service d\'assistance</string>
+    <string name="tele">0622505912</string>
+>>>>>>> 0eeb98972e032fc6b0f1983e0ee6e0f762139533
 
 </resources>

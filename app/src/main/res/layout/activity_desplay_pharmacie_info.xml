@@ -14,11 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="150dp">
 
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView"
+        <ImageView
+            android:id="@+id/maps"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerHorizontal="true" />
+            android:src="@drawable/map"/>
         <TextView
             android:id="@+id/texSetnom"
             android:layout_width="wrap_content"
@@ -34,6 +34,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_margin="6dp"
+        android:visibility="gone"
         android:background="@drawable/pip_back"
         android:padding="2dp">
         <EditText

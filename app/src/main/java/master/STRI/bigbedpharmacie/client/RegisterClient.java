@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.Menu;
@@ -22,10 +23,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import master.STRI.bigbedpharmacie.AboutUsActivity;
 import master.STRI.bigbedpharmacie.MainActivity;
 import master.STRI.bigbedpharmacie.R;
+import master.STRI.bigbedpharmacie.helpMe;
+import master.STRI.bigbedpharmacie.pharmacie.PharmacieProfile;
 
 public class RegisterClient extends AppCompatActivity implements View.OnClickListener {
 
@@ -84,11 +89,13 @@ public class RegisterClient extends AppCompatActivity implements View.OnClickLis
         int id=item.getItemId();
         switch (id){
             case R.id.langage:
-
-                //// a faire
+                Intent intent=new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(intent);
 
                 break;
-
+            case R.id.help_me:
+                startActivity(new Intent(this, helpMe.class));
+                break;
 
 
             case R.id.about_us:
@@ -164,6 +171,7 @@ public class RegisterClient extends AppCompatActivity implements View.OnClickLis
                 progressBar.setVisibility(View.INVISIBLE);
                 startActivity(new Intent(RegisterClient.this, ClientProfile.class));
                 finish();
+
             }
             else{
                 Toast.makeText(this,"Erreur !! ",Toast.LENGTH_SHORT).show();

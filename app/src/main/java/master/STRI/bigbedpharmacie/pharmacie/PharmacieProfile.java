@@ -7,25 +7,31 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.google.firebase.auth.FirebaseAuth;
 
 import master.STRI.bigbedpharmacie.AboutUsActivity;
 import master.STRI.bigbedpharmacie.R;
+import master.STRI.bigbedpharmacie.helpMe;
 
 public class PharmacieProfile extends AppCompatActivity {
 
 
-
-    DrawerLayout drawerLayout;
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pharmacie_profile);
+
+        firebaseAuth=FirebaseAuth.getInstance();
         ViewPager2 viewPager2=(ViewPager2) findViewById(R.id.viewpager2);
+
+
         viewPager2.setAdapter(new FragmentAdapter(this));
         TabLayout tabLayout=(TabLayout) findViewById(R.id.tablayout);
         TabLayoutMediator tabLayoutMediator=new TabLayoutMediator(tabLayout, viewPager2,
@@ -36,7 +42,7 @@ public class PharmacieProfile extends AppCompatActivity {
                 switch(position){
                     case 0:{
                         //tab.setText(R.string.messanger);
-                        tab.setIcon(R.drawable.ic_chat);
+                        tab.setIcon(R.drawable.ic_home);
                         break;
                     }
                     case 1:{
@@ -66,28 +72,18 @@ public class PharmacieProfile extends AppCompatActivity {
         int id=item.getItemId();
         switch (id){
             case R.id.langage:
-
-                //// a faire
-
+                Intent intent=new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(intent);
                 break;
 
             case R.id.aide:
 
-                // a faire
-
-                break;
-
-            case R.id.profile:
-
-                // a faire
-
+                startActivity(new Intent(this, helpMe.class));
                 break;
 
             case R.id.log_out:
-
-
-                 // a faire
-
+                firebaseAuth.signOut();
+                finish();
                 break;
 
             case R.id.about_us:

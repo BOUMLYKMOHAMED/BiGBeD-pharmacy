@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.Menu;
@@ -27,6 +28,7 @@ import master.STRI.bigbedpharmacie.AboutUsActivity;
 import master.STRI.bigbedpharmacie.MainActivity;
 import master.STRI.bigbedpharmacie.R;
 import master.STRI.bigbedpharmacie.client.ClientProfile;
+import master.STRI.bigbedpharmacie.helpMe;
 
 public class RegisterPharmacie extends AppCompatActivity implements View.OnClickListener {
 
@@ -98,11 +100,13 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
         int id=item.getItemId();
         switch (id){
             case R.id.langage:
-
-                //// a faire
+                Intent intent=new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(intent);
 
                 break;
-
+            case R.id.help_me:
+                startActivity(new Intent(this, helpMe.class));
+                break;
 
             case R.id.about_us:
                 startActivity(new Intent(this, AboutUsActivity.class));

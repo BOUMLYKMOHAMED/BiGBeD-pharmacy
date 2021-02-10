@@ -2,9 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
-    <group android:visible="true">
-        <item android:title="@string/profile"
-            android:id="@+id/profile"/>
+    <group>
         <item android:title="@string/language"
             android:id="@+id/langage"/>
         <item android:title="@string/help"

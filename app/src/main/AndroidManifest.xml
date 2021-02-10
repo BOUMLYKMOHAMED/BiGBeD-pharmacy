@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="master.STRI.bigbedpharmacie">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BiGBeDPharmacie">
-        <activity android:name=".client.DesplayPharmacieInfo"
+        <activity android:name=".helpMe"></activity>
+        <activity
+            android:name=".client.DesplayPharmacieInfo"
             android:parentActivityName=".client.ClientProfile">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -19,9 +24,6 @@
             android:name=".client.ClientProfile"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.BiGBeDPharmacie.NoActionBar" />
-        <activity
-            android:name=".Menu_bar"
-            android:theme="@style/Theme.Design.NoActionBar" />
         <activity android:name=".pharmacie.PharmacieProfile" />
         <activity android:name=".AboutUsActivity" />
         <activity

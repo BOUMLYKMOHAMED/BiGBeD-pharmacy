@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="master.STRI.bigbedpharmacie.client.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="@string/espace_client"
         tools:layout="@layout/fragment_home" />
 </navigation>
