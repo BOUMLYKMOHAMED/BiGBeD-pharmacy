@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,8 +35,9 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
     private ProgressBar progressBar3;
     private TextView texSetnom;
     private EditText searchMed;
-    private ImageView search;
+    private ImageView search,map;
     private RecyclerView recycleViewMedicament;
+    private double latitude,longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +47,19 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
         progressBar3.setVisibility(View.VISIBLE);
         Pharmacy_info pharmacy= (Pharmacy_info) getIntent().getSerializableExtra("pharmacie");
         texSetnom=(TextView)findViewById(R.id.texSetnom);
+
+        latitude=pharmacy.getLatitude();
+        longitude=pharmacy.getLongitude();
+
+
         String pharmacyId=pharmacy.getParmacieId();
         texSetnom.setText(pharmacy.getFullName());
         search=(ImageView)findViewById(R.id.search);
+        map=(ImageView)findViewById(R.id.maps);
+        map.setOnClickListener(this);
         search.setOnClickListener(this);
         searchMed=(EditText)findViewById(R.id.searchMed);
+
 
 
 
@@ -98,6 +110,13 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
                 // a faire
 
                 break;
+            case R.id.maps:
+                Intent intent=new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("geo:"+latitude+","+longitude));
+                Intent choiser=intent.createChooser(intent,"Launch Maps");
+                startActivity(choiser);
+                break;
+
         }
 
     }
