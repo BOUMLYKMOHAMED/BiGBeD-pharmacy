@@ -1,21 +1,21 @@
 package master.STRI.bigbedpharmacie.client;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Menu;
-import android.widget.LinearLayout;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -24,14 +24,18 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import master.STRI.bigbedpharmacie.R;
 
-public class ClientProfile extends AppCompatActivity {
+import master.STRI.bigbedpharmacie.R;
+import master.STRI.bigbedpharmacie.helpMe;
+
+public class ClientProfile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
     private TextView name,email;
     private FirebaseFirestore fstore;
     private FirebaseAuth fauth;
+    DrawerLayout drawer;
+    ActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +43,8 @@ public class ClientProfile extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        name=(TextView)findViewById(R.id.nameclient);
-        email=(TextView)findViewById(R.id.emailclient);
-
-
-
         fstore=FirebaseFirestore.getInstance();
         fauth=FirebaseAuth.getInstance();
 /*
@@ -65,15 +64,9 @@ public class ClientProfile extends AppCompatActivity {
 
  */
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+        toggle =new ActionBarDrawerToggle(this,drawer,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
     }
 
     @Override
@@ -100,5 +93,25 @@ public class ClientProfile extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        int id=item.getItemId();
+        switch (id){
+            case R.id.nav_helpC:
+                startActivity(new Intent(getBaseContext(), helpMe.class));
+                break;
+            case R.id.nav_languageC:
+                Intent intent=new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(intent);
+                break;
+            case R.id.nav_shareC:
+                break;
+        }
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

@@ -4,7 +4,7 @@
         <item
             android:id="@+id/nav_homeC"
             android:icon="@drawable/ic_home"
-            android:title="@string/menu_home" />
+            android:title="@string/menu_home"/>
         <item
             android:id="@+id/nav_helpC"
             android:icon="@drawable/ic_help"
@@ -16,6 +16,6 @@
         <item
             android:id="@+id/nav_shareC"
             android:icon="@drawable/ic_share"
-            android:title="@string/share" />
+            android:title="@string/share"/>
     </group>
 </menu>

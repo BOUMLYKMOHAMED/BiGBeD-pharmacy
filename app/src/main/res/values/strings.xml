@@ -75,5 +75,7 @@
     <string name="action_help">help_action</string>
     <string name="aide_action">Aide</string>
     <string name="aide">Aide</string>
+    <string name="service_d_assistance">Si vous avez besoin d\'aide, contactez notre service d\'assistance</string>
+    <string name="tele">0622505912</string>
 
 </resources>

@@ -71,6 +71,16 @@ public class HomeFragment extends Fragment {
                     progressBar4.setVisibility(View.INVISIBLE);
                 }
 
+                /*
+                 <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+                 */
+
             }
         });
         return root;

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,14 +43,14 @@ public class EspaceActivity extends AppCompatActivity implements View.OnClickLis
         int id=item.getItemId();
         switch (id){
             case R.id.langage:
-
-
-                //// a faire
+                Intent intent=new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(intent);
                 break;
-
-
             case R.id.about_us:
                 startActivity(new Intent(this,AboutUsActivity.class));
+                break;
+            case R.id.help_me:
+                startActivity(new Intent(this,helpMe.class));
                 break;
         }
         return super.onOptionsItemSelected(item);

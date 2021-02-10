@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +20,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import master.STRI.bigbedpharmacie.client.ClientProfile;
 import master.STRI.bigbedpharmacie.pharmacie.PharmacieProfile;
@@ -65,18 +69,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id=item.getItemId();
         switch (id){
             case R.id.langage:
-
-                 //// a faire
-
+                Intent intent=new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(intent);
                 break;
 
-            case R.id.aide:
-
-                //// a faire
-
+            case R.id.help_me:
+                startActivity(new Intent(this,helpMe.class));
                 break;
-
-
 
             case R.id.about_us:
                 startActivity(new Intent(this,AboutUsActivity.class));
