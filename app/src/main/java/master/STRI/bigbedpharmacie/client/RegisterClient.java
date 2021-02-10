@@ -146,6 +146,11 @@ public class RegisterClient extends AppCompatActivity implements View.OnClickLis
                 userId=fAuth.getCurrentUser().getUid();
                 Client_Info user=new Client_Info(mFullname,mEmail,mphone);
                 DocumentReference documentReference=fstore.collection("Clients").document(userId);
+                DocumentReference documentReference1=fstore.collection("users").document(userId);
+
+                Map<String,Object> client1= new HashMap<>();
+                client1.put("isClient",1);
+                documentReference1.set(client1);
                Map<String,Object> client= new HashMap<>();
                          client.put("fullName",user.getFullName());
                          client.put("Email",user.getEmail());
@@ -156,11 +161,9 @@ public class RegisterClient extends AppCompatActivity implements View.OnClickLis
                         Log.d(getAttributionTag(),"le profile de client"+ userId + " est bien crée");
                     }
                 });
-
-
-                /// a faire
-
                 progressBar.setVisibility(View.INVISIBLE);
+                startActivity(new Intent(RegisterClient.this, ClientProfile.class));
+                finish();
             }
             else{
                 Toast.makeText(this,"Erreur !! ",Toast.LENGTH_SHORT).show();

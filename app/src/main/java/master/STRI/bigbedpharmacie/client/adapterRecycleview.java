@@ -1,6 +1,7 @@
 package master.STRI.bigbedpharmacie.client;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,7 +56,7 @@ public class adapterRecycleview extends RecyclerView.Adapter<adapterRecycleview.
         return listpharmacie.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
        public TextView textNom,textemail,textactive,villepharmaacie;
         public ImageView imageicon,imageactive;
@@ -68,6 +69,16 @@ public class adapterRecycleview extends RecyclerView.Adapter<adapterRecycleview.
             imageicon =(ImageView)itemView.findViewById(R.id.imageIcon);
             imageactive =(ImageView)itemView.findViewById(R.id.activeImage);
             villepharmaacie =(TextView)itemView.findViewById(R.id.villePharmacie);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Pharmacy_info Pharmacy=listpharmacie.get(getAdapterPosition());
+            Intent intent=new Intent(context,DesplayPharmacieInfo.class);
+            intent.putExtra("pharmacie",Pharmacy);
+            context.startActivity(intent);
         }
     }
 }

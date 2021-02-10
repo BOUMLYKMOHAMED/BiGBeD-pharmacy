@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -28,6 +29,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView.Adapter adapter;
     private List<Pharmacy_info> listpharmacie;
     private FirebaseFirestore fstore;
+    private ProgressBar progressBar4;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -39,6 +41,9 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         listpharmacie=new ArrayList<>();
 
+        progressBar4=(ProgressBar)root.findViewById(R.id.progressBar4);
+        progressBar4.setVisibility(View.VISIBLE);
+
         adapter=new adapterRecycleview(listpharmacie,getContext());
         recyclerView.setAdapter(adapter);
 
@@ -49,13 +54,21 @@ public class HomeFragment extends Fragment {
                     List<DocumentSnapshot> list=queryDocumentSnapshots.getDocuments();
                     for (DocumentSnapshot documentSnapshot:list){
                         Pharmacy_info pharmacie=documentSnapshot.toObject(Pharmacy_info.class);
+                        pharmacie.setParmacieId(documentSnapshot.getId());
                         boolean status = (boolean)documentSnapshot.get("status");
                         String email=(String)documentSnapshot.get("Email");
+                        String tele=(String)documentSnapshot.get("phone");
+                        double latitude=(double) documentSnapshot.get("latitude");
+                        double longitude=(double) documentSnapshot.get("longitude");
                         pharmacie.setPstatus(status);
                         pharmacie.setEmail(email);
+                        pharmacie.setTelephone(tele);
+                        pharmacie.setLatitude(latitude);
+                        pharmacie.setLongitude(longitude);
                         listpharmacie.add(pharmacie);
                     }
                     adapter.notifyDataSetChanged();
+                    progressBar4.setVisibility(View.INVISIBLE);
                 }
 
             }

@@ -26,6 +26,7 @@ import java.util.Map;
 import master.STRI.bigbedpharmacie.AboutUsActivity;
 import master.STRI.bigbedpharmacie.MainActivity;
 import master.STRI.bigbedpharmacie.R;
+import master.STRI.bigbedpharmacie.client.ClientProfile;
 
 public class RegisterPharmacie extends AppCompatActivity implements View.OnClickListener {
 
@@ -180,6 +181,11 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
                 userId=fAuth.getCurrentUser().getUid();
                Pharmacy_info user=new Pharmacy_info(mFullname,mEmail,mphone,mville,Latitude,Longitude,status);
                 DocumentReference documentReference=fstore.collection("Pharmacies").document(userId);
+                DocumentReference documentReference1=fstore.collection("users").document(userId);
+
+                Map<String,Object> client1= new HashMap<>();
+                client1.put("isPharmacie",1);
+                documentReference1.set(client1);
                 Map<String,Object> client= new HashMap<>();
                 client.put("fullName",user.getFullName());
                 client.put("Email",user.getEmail());
@@ -196,10 +202,8 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
                 });
 
                 progressBar.setVisibility(View.INVISIBLE);
-
-                /// a faire
-
-
+                startActivity(new Intent(RegisterPharmacie.this, PharmacieProfile.class));
+                finish();
             }
             else{
                 Toast.makeText(this,"Erreur !! ",Toast.LENGTH_SHORT).show();

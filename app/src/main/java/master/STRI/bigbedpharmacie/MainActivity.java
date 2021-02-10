@@ -123,18 +123,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressBar.setVisibility(View.VISIBLE);
         fAuth.signInWithEmailAndPassword(mEmail,mpassword).addOnCompleteListener(task -> {
            if (task.isSuccessful()){
-               progressBar.setVisibility(View.INVISIBLE);
-               Toast.makeText(this,"bien aurtentifie",Toast.LENGTH_LONG).show();
                String userid=fAuth.getCurrentUser().getUid();
 
-               fStore.collection("Pharmacie").document(userid).
+               fStore.collection("users").document(userid).
                        get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                    @Override
                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                       if (documentSnapshot.get("ville")!=null){
+                       if (documentSnapshot.get("isPharmacie")!=null){
+                           Toast.makeText(MainActivity.this,"bien aurtentifie",Toast.LENGTH_LONG).show();
+                           progressBar.setVisibility(View.INVISIBLE);
                            startActivity(new Intent(MainActivity.this, PharmacieProfile.class));
                        }
                        else{
+                           Toast.makeText(MainActivity.this,"bien aurtentifie",Toast.LENGTH_LONG).show();
+                           progressBar.setVisibility(View.INVISIBLE);
                            startActivity(new Intent(MainActivity.this, ClientProfile.class));
                        }
 

@@ -2,7 +2,9 @@ package master.STRI.bigbedpharmacie.pharmacie;
 
 import com.google.firebase.firestore.Exclude;
 
-public class Pharmacy_info {
+import java.io.Serializable;
+
+public class Pharmacy_info implements Serializable {
 
     @Exclude
     private String parmacieId;

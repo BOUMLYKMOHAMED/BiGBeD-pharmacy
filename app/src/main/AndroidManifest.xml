@@ -9,10 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BiGBeDPharmacie">
+        <activity android:name=".client.DesplayPharmacieInfo"
+            android:parentActivityName=".client.ClientProfile">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="master.STRI.bigbedpharmacie.client.ClientProfile" />
+        </activity>
         <activity
             android:name=".client.ClientProfile"
             android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.BiGBeDPharmacie.NoActionBar"></activity>
+            android:theme="@style/Theme.BiGBeDPharmacie.NoActionBar" />
         <activity
             android:name=".Menu_bar"
             android:theme="@style/Theme.Design.NoActionBar" />
