@@ -71,5 +71,9 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="search_for_medicament">Search for medicament</string>
+    <string name="action_aide">"aide_acttion "</string>
+    <string name="action_help">help_action</string>
+    <string name="aide_action">Aide</string>
+    <string name="aide">Aide</string>
 
 </resources>

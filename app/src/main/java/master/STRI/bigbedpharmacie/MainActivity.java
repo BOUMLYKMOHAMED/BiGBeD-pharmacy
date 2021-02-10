@@ -70,6 +70,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
 
+            case R.id.aide:
+
+                //// a faire
+
+                break;
+
 
 
             case R.id.about_us:
