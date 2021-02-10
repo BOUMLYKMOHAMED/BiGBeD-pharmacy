@@ -35,7 +35,7 @@
     <string name="avoir_un_nouveau_mot_de_passe">Entrer votre Email pour un nouveau mot de passe</string>
     <string name="envoyer">Envoyer</string>
     <string name="language">Langage</string>
-    <string name="qui_somme_nous">Qui Somme Nous ?</string>
+    <string name="qui_somme_nous">"À propos de nous "</string>
     <string name="messanger">Message</string>
     <string name="ajouter_un_service">Ajouter un service</string>
     <string name="status">Statut</string>
@@ -53,35 +53,26 @@
     <string name="l_agence_est_fermer">La pharmacie est fermée à ce moment</string>
     <string name="l_agence_est_ouvert">La pharmacie est ouvert à ce moment</string>
     <string name="ajouter_un_m_dicament">Ajouter un médicament</string>
-    <string name="message_update">Votre status est update</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="message_update">Votre status est en mise à jour</string>
+    <string name="navigation_drawer_open">"Ouvrir le tiroir de navigation "</string>
+    <string name="navigation_drawer_close">Ouvrir le tiroir de navigation </string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="log_out">Log out</string>
-    <string name="profile">Profile</string>
-    <string name="help">help</string>
-    <string name="share">Share</string>
-    <string name="active">Active</string>
+    <string name="nav_header_desc">En-tête de navigation </string>
+    <string name="log_out">Se déconnecter</string>
+    <string name="profile">Profil</string>
+    <string name="help">Aidez-moi </string>
+    <string name="share">Partager</string>
+    <string name="active">Actif</string>
     <string name="inactive">Inactive</string>
     <string name="title_activity_main2">MainActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="search_for_medicament">Search for medicament</string>
-<<<<<<< HEAD
-    <string name="aide">Aide</string>
-    <string name="action_help">Si vous avez besoin d\'aide, cantactez notre service d\'assistance.</string>
-    <string name="action_aide">Aide</string>
-=======
-    <string name="action_aide">"aide_acttion "</string>
-    <string name="action_help">help_action</string>
-    <string name="aide_action">Aide</string>
-    <string name="aide">Aide</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="menu_home">Accueil</string>
+
+    <string name="search_for_medicament">Rechercher un médicament</string>
+
     <string name="service_d_assistance">Si vous avez besoin d\'aide, contactez notre service d\'assistance</string>
     <string name="tele">0622505912</string>
->>>>>>> 0eeb98972e032fc6b0f1983e0ee6e0f762139533
+
 
 </resources>

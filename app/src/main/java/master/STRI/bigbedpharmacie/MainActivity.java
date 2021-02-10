@@ -77,26 +77,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id=item.getItemId();
         switch (id){
             case R.id.langage:
-<<<<<<< HEAD
+
                 Intent langageIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
                 startActivity(langageIntent);
-=======
+
                 Intent intent=new Intent(Settings.ACTION_LOCALE_SETTINGS);
                 startActivity(intent);
->>>>>>> 0eeb98972e032fc6b0f1983e0ee6e0f762139533
+
                 break;
             //// a faire
 
             case R.id.help_me:
-<<<<<<< HEAD
+
                 showHelpMe();
-=======
+
                 startActivity(new Intent(this,helpMe.class));
                 break;
 
             case R.id.about_us:
                 startActivity(new Intent(this,AboutUsActivity.class));
->>>>>>> 0eeb98972e032fc6b0f1983e0ee6e0f762139533
+
                 break;
             default:
         }
