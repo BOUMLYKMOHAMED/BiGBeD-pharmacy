@@ -119,14 +119,9 @@ public class RegisterClient extends AppCompatActivity implements View.OnClickLis
                             Toast.makeText(getApplicationContext(), getText(R.string.userCreate).toString(), Toast.LENGTH_SHORT).show();
                             userId = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
                             Client_Info user = new Client_Info(mFullname, mEmail, mphone);
-                            DocumentReference documentReference = fstore.collection("Clients").document(userId);
-
-                            DocumentReference documentReference1 = fstore.collection("users").document(userId);
-
-                            Map<String, Object> client1 = new HashMap<>();
-                            client1.put("isClient", 1);
-                            documentReference1.set(client1);
+                            DocumentReference documentReference = fstore.collection("Users").document(userId);
                             Map<String, Object> client = new HashMap<>();
+                            client.put("isClient", 1);
                             client.put("fullName", user.getFullName());
                             client.put("Email", user.getEmail());
                             client.put("phone", user.getTelephone());
@@ -144,11 +139,12 @@ public class RegisterClient extends AppCompatActivity implements View.OnClickLis
                             });
                             progressBar.setVisibility(View.INVISIBLE);
                             Intent intent = new Intent(getApplicationContext(), ClientProfile.class);
+                            intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                             startActivity(intent);
                             finish();
                         }
                         else{
-                            Toast.makeText(getApplicationContext(), "Erreur !! ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), getText(R.string.error).toString(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.INVISIBLE);
 
                         }

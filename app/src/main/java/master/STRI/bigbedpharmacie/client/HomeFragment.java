@@ -47,25 +47,27 @@ public class HomeFragment extends Fragment {
         adapter=new adapterRecycleview(listpharmacie,getContext());
         recyclerView.setAdapter(adapter);
 
-        fstore.collection("Pharmacies").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        fstore.collection("Users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 if (!queryDocumentSnapshots.isEmpty()){
                     List<DocumentSnapshot> list=queryDocumentSnapshots.getDocuments();
                     for (DocumentSnapshot documentSnapshot:list){
-                        Pharmacy_info pharmacie=documentSnapshot.toObject(Pharmacy_info.class);
-                        pharmacie.setParmacieId(documentSnapshot.getId());
-                        boolean status = (boolean)documentSnapshot.get("status");
-                        String email=(String)documentSnapshot.get("Email");
-                        String tele=(String)documentSnapshot.get("phone");
-                        double latitude=(double) documentSnapshot.get("latitude");
-                        double longitude=(double) documentSnapshot.get("longitude");
-                        pharmacie.setPstatus(status);
-                        pharmacie.setEmail(email);
-                        pharmacie.setTelephone(tele);
-                        pharmacie.setLatitude(latitude);
-                        pharmacie.setLongitude(longitude);
-                        listpharmacie.add(pharmacie);
+                        if (documentSnapshot.get("isPharmacie")!=null){
+                            Pharmacy_info pharmacie=documentSnapshot.toObject(Pharmacy_info.class);
+                            pharmacie.setParmacieId(documentSnapshot.getId());
+                            boolean status = (boolean)documentSnapshot.get("status");
+                            String email=(String)documentSnapshot.get("Email");
+                            String tele=(String)documentSnapshot.get("phone");
+                            double latitude=(double) documentSnapshot.get("latitude");
+                            double longitude=(double) documentSnapshot.get("longitude");
+                            pharmacie.setPstatus(status);
+                            pharmacie.setEmail(email);
+                            pharmacie.setTelephone(tele);
+                            pharmacie.setLatitude(latitude);
+                            pharmacie.setLongitude(longitude);
+                            listpharmacie.add(pharmacie);
+                        }
                     }
                     adapter.notifyDataSetChanged();
                     progressBar4.setVisibility(View.INVISIBLE);

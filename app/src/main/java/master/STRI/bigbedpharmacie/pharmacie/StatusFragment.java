@@ -50,7 +50,7 @@ public class StatusFragment extends Fragment {
 
 
 
-        fstore.collection("Pharmacies").document(userid).get()
+        fstore.collection("Users").document(userid).get()
                 .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -81,7 +81,7 @@ public class StatusFragment extends Fragment {
                 On.setBackgroundResource(R.color.ouvert);
                 Off.setBackgroundResource(R.color.fermee);
                 textStatus.setText(R.string.l_agence_est_ouvert);
-                fstore.collection("Pharmacies").document(userid)
+                fstore.collection("Users").document(userid)
                         .update("status",true)
                         .addOnCompleteListener(task -> {
                             progressBar2.setVisibility(View.INVISIBLE);
@@ -100,7 +100,7 @@ public class StatusFragment extends Fragment {
                 On.setBackgroundResource(R.color.fermee);
                 textStatus.setText(R.string.l_agence_est_fermer);
                 String userid=fAuth.getCurrentUser().getUid();
-                fstore.collection("Pharmacies").document(userid)
+                fstore.collection("Users").document(userid)
                         .update("status",false)
                         .addOnCompleteListener(task -> {
                             progressBar2.setVisibility(View.INVISIBLE);

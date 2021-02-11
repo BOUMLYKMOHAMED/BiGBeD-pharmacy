@@ -72,7 +72,7 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
         adapter=new Medicament_Adapter(listmed,getBaseContext());
         recycleViewMedicament.setAdapter(adapter);
 
-        fstore.collection("Medicaments").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        fstore.collection("Services").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             @Override
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 if (!queryDocumentSnapshots.isEmpty()){
@@ -81,11 +81,18 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
                         Med_Info med=d.toObject(Med_Info.class);
                         String id=(String)d.get("Pharmacie");
                         String des=(String)d.get("Description");
-                        String name=(String)d.get("Medicament_Name");
+                        String name=(String)d.get("Name");
+
                         med.setDescription(des);
                         med.setName(name);
                         med.setId(id);
+                        if (d.get("isMedicament")!=null){
+                            med.setType(true);
+                        }
+                        else{
+                            med.setType(false);
 
+                        }
                         if (med.getId().equals(pharmacyId)){
                             listmed.add(med);
                         }

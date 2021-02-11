@@ -185,13 +185,10 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
                 Toast.makeText(this,getText(R.string.userCreate).toString(),Toast.LENGTH_SHORT).show();
                 userId=fAuth.getCurrentUser().getUid();
                Pharmacy_info user=new Pharmacy_info(mFullname,mEmail,mphone,mville,Latitude,Longitude,status);
-                DocumentReference documentReference=fstore.collection("Pharmacies").document(userId);
-                DocumentReference documentReference1=fstore.collection("users").document(userId);
+                DocumentReference documentReference=fstore.collection("Users").document(userId);
 
-                Map<String,Object> client1= new HashMap<>();
-                client1.put("isPharmacie",1);
-                documentReference1.set(client1);
                 Map<String,Object> client= new HashMap<>();
+                client.put("isPharmacie",1);
                 client.put("fullName",user.getFullName());
                 client.put("Email",user.getEmail());
                 client.put("phone",user.getTelephone());
@@ -207,11 +204,13 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
                 });
 
                 progressBar.setVisibility(View.INVISIBLE);
-                startActivity(new Intent(RegisterPharmacie.this, PharmacieProfile.class));
+                Intent intent=new Intent(RegisterPharmacie.this, PharmacieProfile.class);
+                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
                 finish();
             }
             else{
-                Toast.makeText(this,"Erreur !! ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,getText(R.string.error).toString(),Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.INVISIBLE);
             }
 

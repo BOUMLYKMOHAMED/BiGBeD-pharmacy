@@ -4,7 +4,7 @@
     <group android:visible="true">
         <item android:title="@string/language"
             android:id="@+id/langage"/>
-        <item android:title="@string/aide"
+        <item android:title="Aide"
             android:id="@+id/help_me"/>
         <item android:title="@string/qui_somme_nous"
             android:id="@+id/about_us"/>

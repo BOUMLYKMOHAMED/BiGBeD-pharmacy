@@ -46,7 +46,7 @@ public class ChatFragment extends Fragment {
         firebaseAuth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
         String userid=firebaseAuth.getCurrentUser().getUid();
-        fstore.collection("Pharmacies").document(userid)
+        fstore.collection("Users").document(userid)
                 .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {

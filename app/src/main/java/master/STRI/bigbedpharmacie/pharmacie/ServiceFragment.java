@@ -61,12 +61,13 @@ public class ServiceFragment extends Fragment {
 
 
                 String userId = auth.getCurrentUser().getUid();
-                CollectionReference documentReference = fstore.collection("Medicaments");
-                Map<String, Object> client = new HashMap<>();
-                client.put("Description", desc);
-                client.put("Medicament_Name", Name);
-                client.put("Pharmacie", userId);
-                documentReference.add(client).addOnCompleteListener(task -> {
+                CollectionReference documentReference = fstore.collection("Services");
+                Map<String, Object> Med = new HashMap<>();
+                Med.put("Description", desc);
+                Med.put("Name", Name);
+                Med.put("Pharmacie", userId);
+                Med.put("isMedicament",1);
+                documentReference.add(Med).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(getContext(), getText(R.string.medicament_ajouter), Toast.LENGTH_LONG).show();
                         ajouterMed.getText().clear();
@@ -93,11 +94,11 @@ public class ServiceFragment extends Fragment {
                 }
                 String userId = auth.getCurrentUser().getUid();
                 CollectionReference documentReference = fstore.collection("Services");
-                Map<String, Object> client = new HashMap<>();
-                client.put("Description", desc);
-                client.put("Service_Name", Name);
-                client.put("Pharmacie", userId);
-                documentReference.add(client).addOnCompleteListener(task -> {
+                Map<String, Object> Service = new HashMap<>();
+                Service.put("Description", desc);
+                Service.put("Name", Name);
+                Service.put("Pharmacie", userId);
+                documentReference.add(Service).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(getContext(), getText(R.string.service_ajouter), Toast.LENGTH_LONG).show();
                         ajouterSer.getText().clear();

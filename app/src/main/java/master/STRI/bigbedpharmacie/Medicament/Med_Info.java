@@ -2,15 +2,22 @@ package master.STRI.bigbedpharmacie.Medicament;
 
 public class Med_Info {
     private String name, Description ,id;
+    private boolean type;
 
-
+    public boolean isType() {
+        return type;
+    }
+    public void setType(boolean type) {
+        this.type = type;
+    }
     public Med_Info(){
 
     }
-    public Med_Info(String name, String description, String id) {
+    public Med_Info(String name, String description, String id,boolean type) {
         this.name = name;
         Description = description;
         this.id = id;
+        this.type=type;
     }
 
     public String getName() {

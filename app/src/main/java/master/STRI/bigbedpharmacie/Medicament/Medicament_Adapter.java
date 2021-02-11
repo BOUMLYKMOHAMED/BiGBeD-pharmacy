@@ -34,6 +34,12 @@ public class Medicament_Adapter extends RecyclerView.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Med_Info medicament=listmed.get(position);
         holder.NomMed.setText(medicament.getName());
+        if (medicament.isType()){
+            holder.type.setText(R.string.medicament);
+        }
+        else{
+            holder.type.setText(R.string.service);
+        }
         holder.Description.setText(medicament.getDescription());
     }
 
@@ -44,11 +50,12 @@ public class Medicament_Adapter extends RecyclerView.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView NomMed,Description;
+        public TextView NomMed,Description,type;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             NomMed =(TextView)itemView.findViewById(R.id.nomMed);
+            type =(TextView)itemView.findViewById(R.id.type);
             Description =(TextView)itemView.findViewById(R.id.description);
 
         }

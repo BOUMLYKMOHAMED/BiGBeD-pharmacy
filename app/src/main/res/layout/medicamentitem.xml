@@ -33,6 +33,14 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:text="description"/>
+                <TextView
+                    android:id="@+id/type"
+                    android:padding="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#F10505"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:text="type"/>
             </LinearLayout>
 
         </LinearLayout>

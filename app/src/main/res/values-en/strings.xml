@@ -33,7 +33,7 @@
     <string name="avoir_un_nouveau_mot_de_passe">Enter your Email for a new password</string>
     <string name="envoyer">Send</string>
     <string name="language">Language</string>
-    <string name="qui_somme_nous">Who are we ?</string>
+    <string name="qui_somme_nous">"About us "</string>
     <string name="messanger">Message</string>
     <string name="ajouter_un_service">Add a service</string>
     <string name="status">Status</string>
@@ -48,12 +48,12 @@
     <string name="ajouter">Add</string>
     <!-- -->
     <string name="longitude_empty">Enter longitude</string>
-    <string name="service_ajouter">La service est ajouter avec succée</string>
-    <string name="medicament_ajouter">Le Medicament est ajouter avec succée</string>
-    <string name="medicamen_empty">Entrer le nom de medicament</string>
-    <string name="Description_empty">Entrer la description</string>
-    <string name="service_empty">Entrer le nom du service</string>
-    <string name="message_update">Votre status est update</string>
+    <string name="service_ajouter">The service is added successfully</string>
+    <string name="medicament_ajouter">The Medicament is added successfully</string>
+    <string name="medicamen_empty">"Enter medication "</string>
+    <string name="Description_empty">"Enter Description "</string>
+    <string name="service_empty">"Enter the service "</string>
+    <string name="message_update">Your status is updated</string>
     <string name="help">help</string>
     <string name="share">Share</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -65,10 +65,15 @@
     <string name="profile">Profile</string>
     <string name="active">Active</string>
     <string name="inactive">Inactive</string>
-    <string name="title_activity_main2">MainActivity</string>
+    <string name="title_activity_main2">Profile Client</string>
     <string name="action_settings">Settings</string>
     <string name="menu_home">Home</string>
     <string name="search_for_medicament">Search for medicament</string>
-    <string name="service_d_assistance">Si vous avez besoin d\'aide, contactez notre service d\'assistance</string>
+    <string name="service_d_assistance">If you need help, contact our Support Department.</string>
     <string name="tele">0622505912</string>
+    <string name="verify_your_email">verifiy votre Email address</string>
+    <string name="email_invalid">address email est invalid</string>
+    <string name="error">Erreur !!</string>
+    <string name="medicament">Medicament</string>
+    <string name="service">Service</string>
 </resources>

@@ -77,7 +77,7 @@ public class ClientProfile extends AppCompatActivity {
         });
 
         String id=fauth.getCurrentUser().getUid();
-        fstore.collection("Clients").document(id).get().
+        fstore.collection("Users").document(id).get().
                 addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {

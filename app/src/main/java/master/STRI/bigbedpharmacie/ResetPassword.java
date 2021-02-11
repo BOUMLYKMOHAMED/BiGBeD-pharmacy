@@ -57,10 +57,10 @@ public class ResetPassword extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
                     progressBar.setVisibility(View.INVISIBLE);
-                    Toast.makeText(ResetPassword.this," verifiy votre Email address",Toast.LENGTH_LONG).show();
+                    Toast.makeText(ResetPassword.this,getText(R.string.verify_your_email).toString(),Toast.LENGTH_LONG).show();
                 }
                 else{
-                    Toast.makeText(ResetPassword.this,"address email est invalid",Toast.LENGTH_LONG).show();
+                    Toast.makeText(ResetPassword.this,getText(R.string.email_invalid).toString(),Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.INVISIBLE);
                 }
 

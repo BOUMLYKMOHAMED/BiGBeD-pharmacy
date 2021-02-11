@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -56,8 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         passwordForget=(TextView)findViewById(R.id.passwordForget);
         passwordForget.setOnClickListener(this);
         progressBar=(ProgressBar)findViewById(R.id.IprogressBar);
-    }
 
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main_activity,menu);
@@ -72,12 +73,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent=new Intent(Settings.ACTION_LOCALE_SETTINGS);
                 startActivity(intent);
                 break;
+
             case R.id.help_me:
                 startActivity(new Intent(this,helpMe.class));
                 break;
+
             case R.id.about_us:
                 startActivity(new Intent(this,AboutUsActivity.class));
                 break;
+            default:
         }
         return super.onOptionsItemSelected(item);
     }
@@ -128,19 +132,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            if (task.isSuccessful()){
                String userid=fAuth.getCurrentUser().getUid();
 
-               fStore.collection("users").document(userid).
+               fStore.collection("Users").document(userid).
                        get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                    @Override
                    public void onSuccess(DocumentSnapshot documentSnapshot) {
                        if (documentSnapshot.get("isPharmacie")!=null){
                            Toast.makeText(MainActivity.this,"bien aurtentifie",Toast.LENGTH_LONG).show();
                            progressBar.setVisibility(View.INVISIBLE);
-                           startActivity(new Intent(MainActivity.this, PharmacieProfile.class));
+                           Intent intent=new Intent(MainActivity.this, PharmacieProfile.class);
+                           intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                           startActivity(intent);
+
                        }
                        else{
                            Toast.makeText(MainActivity.this,"bien aurtentifie",Toast.LENGTH_LONG).show();
                            progressBar.setVisibility(View.INVISIBLE);
-                           startActivity(new Intent(MainActivity.this, ClientProfile.class));
+                           Intent intent=new Intent(MainActivity.this, ClientProfile.class);
+                           intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                           startActivity(intent);
                        }
 
                    }
@@ -150,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            else{
                error.setVisibility(View.VISIBLE);
                progressBar.setVisibility(View.INVISIBLE);
-               Toast.makeText(this,"error !!",Toast.LENGTH_LONG).show();
+               Toast.makeText(this,getText(R.string.error).toString(),Toast.LENGTH_LONG).show();
            }
         });
     }
