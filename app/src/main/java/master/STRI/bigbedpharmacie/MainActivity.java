@@ -72,11 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent=new Intent(Settings.ACTION_LOCALE_SETTINGS);
                 startActivity(intent);
                 break;
-
             case R.id.help_me:
                 startActivity(new Intent(this,helpMe.class));
                 break;
-
             case R.id.about_us:
                 startActivity(new Intent(this,AboutUsActivity.class));
                 break;

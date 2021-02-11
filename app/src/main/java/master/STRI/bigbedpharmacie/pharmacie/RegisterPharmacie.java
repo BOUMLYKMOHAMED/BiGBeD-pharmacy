@@ -39,6 +39,7 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
     private EditText fullName, email,phone,password,copassword,longitude,latitude,ville;
     private TextView valide, seconnecter;
     String userId;
+    public static final String TAG="TAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -201,7 +202,7 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
                 documentReference.set(client).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(getAttributionTag(),"le profile de client"+ userId + " est bien crée");
+                        Log.d(TAG,"le profile de client"+ userId + " est bien crée");
                     }
                 });
 

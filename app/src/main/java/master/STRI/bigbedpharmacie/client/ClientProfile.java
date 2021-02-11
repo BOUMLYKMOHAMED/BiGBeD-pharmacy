@@ -7,10 +7,11 @@ import android.view.MenuItem;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import androidx.annotation.NonNull;
@@ -28,13 +29,15 @@ import androidx.appcompat.widget.Toolbar;
 import master.STRI.bigbedpharmacie.R;
 import master.STRI.bigbedpharmacie.helpMe;
 
-public class ClientProfile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class ClientProfile extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private TextView name,email;
     private FirebaseFirestore fstore;
     private FirebaseAuth fauth;
     DrawerLayout drawer;
+    private View nView;
+    MenuItem item;
     ActionBarDrawerToggle toggle;
 
     @Override
@@ -47,7 +50,32 @@ public class ClientProfile extends AppCompatActivity implements NavigationView.O
         NavigationView navigationView = findViewById(R.id.nav_view);
         fstore=FirebaseFirestore.getInstance();
         fauth=FirebaseAuth.getInstance();
-/*
+        nView=navigationView.getHeaderView(0);
+        name=(TextView)nView.findViewById(R.id.nameclient);
+        email=(TextView)nView.findViewById(R.id.emailclient);
+
+        navigationView.setNavigationItemSelectedListener(item1 -> {
+            int id=item1.getItemId();
+            if (id==R.id.nav_helpC) {
+                Intent intent = new Intent(ClientProfile.this, helpMe.class);
+                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); //don't push on stack
+                startActivity(intent);
+
+            }
+            else if(id==R.id.nav_languageC) {
+                Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+
+            }
+            else if(id==R.id.nav_shareC){
+
+            }
+            drawer.closeDrawer(GravityCompat.START);
+
+            return true;
+        });
+
         String id=fauth.getCurrentUser().getUid();
         fstore.collection("Clients").document(id).get().
                 addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -57,12 +85,9 @@ public class ClientProfile extends AppCompatActivity implements NavigationView.O
                 String m= (String) documentSnapshot.get("Email");
                 name.setText(n);
                 email.setText(m);
-
-
             }
         });
 
- */
 
         toggle =new ActionBarDrawerToggle(this,drawer,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -75,7 +100,6 @@ public class ClientProfile extends AppCompatActivity implements NavigationView.O
         getMenuInflater().inflate(R.menu.main_activity2, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id=item.getItemId();
@@ -93,25 +117,5 @@ public class ClientProfile extends AppCompatActivity implements NavigationView.O
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
-    }
-
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-        int id=item.getItemId();
-        switch (id){
-            case R.id.nav_helpC:
-                startActivity(new Intent(getBaseContext(), helpMe.class));
-                break;
-            case R.id.nav_languageC:
-                Intent intent=new Intent(Settings.ACTION_LOCALE_SETTINGS);
-                startActivity(intent);
-                break;
-            case R.id.nav_shareC:
-                break;
-        }
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 }
