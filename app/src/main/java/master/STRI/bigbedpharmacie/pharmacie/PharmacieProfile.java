@@ -1,8 +1,12 @@
 package master.STRI.bigbedpharmacie.pharmacie;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
@@ -10,26 +14,92 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import master.STRI.bigbedpharmacie.AboutUsActivity;
 import master.STRI.bigbedpharmacie.R;
+import master.STRI.bigbedpharmacie.client.ClientProfile;
 import master.STRI.bigbedpharmacie.helpMe;
 
 public class PharmacieProfile extends AppCompatActivity {
 
 
     private FirebaseAuth firebaseAuth;
+    private FirebaseFirestore fstore;
+    private DrawerLayout drawer;
+    private View nView;
+    private ActionBarDrawerToggle toggle;
+    private AppBarConfiguration mAppBarConfiguration;
+    private TextView name,email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pharmacie_profile);
 
+        Toolbar toolbar = findViewById(R.id.toolbar1);
+        setSupportActionBar(toolbar);
+        drawer = findViewById(R.id.drawer_layoutp);
+        NavigationView navigationView = findViewById(R.id.nav_viewpharmacie);
+
+        toggle =new ActionBarDrawerToggle(this,drawer,toolbar,R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
+
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
         firebaseAuth=FirebaseAuth.getInstance();
+        fstore=FirebaseFirestore.getInstance();
+        nView=navigationView.getHeaderView(0);
+        name=(TextView)nView.findViewById(R.id.namepharmacie);
+        email=(TextView)nView.findViewById(R.id.emailpharmacie);
+        String curent_id=firebaseAuth.getCurrentUser().getUid();
+        fstore.collection("Users").document(curent_id).get().
+                addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        String n= (String) documentSnapshot.get("fullName");
+                        String m= (String) documentSnapshot.get("Email");
+                        name.setText(n);
+                        email.setText(m);
+                    }
+                });
         ViewPager2 viewPager2=(ViewPager2) findViewById(R.id.viewpager2);
+
+        navigationView.setNavigationItemSelectedListener(item1 -> {
+            int id=item1.getItemId();
+            if (id==R.id.nav_help) {
+                Intent intent = new Intent(PharmacieProfile.this, helpMe.class);
+                startActivity(intent);
+
+            }
+            else if(id==R.id.nav_language) {
+                Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(intent);
+
+            }
+            else if(id==R.id.nav_share){
+
+
+                // a faire
+
+            }
+            else if(id==R.id.log_out_actionC){
+                firebaseAuth.signOut();
+                finish();
+            }
+            drawer.closeDrawer(GravityCompat.START);
+
+            return true;
+        });
 
 
         viewPager2.setAdapter(new FragmentAdapter(this));
@@ -71,24 +141,7 @@ public class PharmacieProfile extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id=item.getItemId();
         switch (id){
-            case R.id.langage:
-                Intent intent=new Intent(Settings.ACTION_LOCALE_SETTINGS);
-                startActivity(intent);
-                break;
 
-            case R.id.aide:
-
-                startActivity(new Intent(this, helpMe.class));
-                break;
-
-            case R.id.log_out:
-                firebaseAuth.signOut();
-                finish();
-                break;
-
-            case R.id.about_us:
-                startActivity(new Intent(this, AboutUsActivity.class));
-                break;
         }
         return super.onOptionsItemSelected(item);
     }

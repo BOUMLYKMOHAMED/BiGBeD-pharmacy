@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -32,10 +33,11 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
     private RecyclerView.Adapter adapter;
     private List<Med_Info> listmed;
     private FirebaseFirestore fstore;
+    private FirebaseAuth firebaseAuth;
     private ProgressBar progressBar3;
     private TextView texSetnom;
     private EditText searchMed;
-    private ImageView search,map;
+    private ImageView search,map,callMe;
     private RecyclerView recycleViewMedicament;
     private double latitude,longitude;
 
@@ -56,14 +58,25 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
         texSetnom.setText(pharmacy.getFullName());
         search=(ImageView)findViewById(R.id.search);
         map=(ImageView)findViewById(R.id.maps);
+        callMe=(ImageView)findViewById(R.id.callMe);
         map.setOnClickListener(this);
         search.setOnClickListener(this);
         searchMed=(EditText)findViewById(R.id.searchMed);
 
 
+        callMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String tele=pharmacy.getTelephone();
+                Intent intent=new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:"+tele));
+                startActivity(intent);
+            }
+        });
 
 
         fstore=FirebaseFirestore.getInstance();
+        firebaseAuth=FirebaseAuth.getInstance();
 
         recycleViewMedicament=(RecyclerView)findViewById(R.id.recycleViewMedicament);
         recycleViewMedicament.setLayoutManager(new LinearLayoutManager(getBaseContext()));
@@ -127,5 +140,4 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
         }
 
     }
-
 }

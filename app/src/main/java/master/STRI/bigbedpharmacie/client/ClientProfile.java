@@ -37,7 +37,6 @@ public class ClientProfile extends AppCompatActivity {
     private FirebaseAuth fauth;
     DrawerLayout drawer;
     private View nView;
-    MenuItem item;
     ActionBarDrawerToggle toggle;
 
     @Override
@@ -50,6 +49,7 @@ public class ClientProfile extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         fstore=FirebaseFirestore.getInstance();
         fauth=FirebaseAuth.getInstance();
+
         nView=navigationView.getHeaderView(0);
         name=(TextView)nView.findViewById(R.id.nameclient);
         email=(TextView)nView.findViewById(R.id.emailclient);
@@ -58,24 +58,28 @@ public class ClientProfile extends AppCompatActivity {
             int id=item1.getItemId();
             if (id==R.id.nav_helpC) {
                 Intent intent = new Intent(ClientProfile.this, helpMe.class);
-                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); //don't push on stack
                 startActivity(intent);
 
             }
             else if(id==R.id.nav_languageC) {
                 Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
-                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
 
             }
             else if(id==R.id.nav_shareC){
 
+                 //afire
+
             }
+            else if(id==R.id.log_out_actionC){
+                fauth.signOut();
+                finish();
+            }
+
             drawer.closeDrawer(GravityCompat.START);
 
             return true;
         });
-
         String id=fauth.getCurrentUser().getUid();
         fstore.collection("Users").document(id).get().
                 addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -93,25 +97,6 @@ public class ClientProfile extends AppCompatActivity {
         drawer.addDrawerListener(toggle);
         toggle.syncState();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_activity2, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id=item.getItemId();
-        switch (id){
-            case R.id.action_logout:
-                fauth.signOut();
-                finish();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);

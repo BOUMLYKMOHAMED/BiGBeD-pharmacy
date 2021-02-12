@@ -140,7 +140,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                            Toast.makeText(MainActivity.this,"bien aurtentifie",Toast.LENGTH_LONG).show();
                            progressBar.setVisibility(View.INVISIBLE);
                            Intent intent=new Intent(MainActivity.this, PharmacieProfile.class);
-                           intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                            startActivity(intent);
 
                        }
@@ -148,7 +147,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                            Toast.makeText(MainActivity.this,"bien aurtentifie",Toast.LENGTH_LONG).show();
                            progressBar.setVisibility(View.INVISIBLE);
                            Intent intent=new Intent(MainActivity.this, ClientProfile.class);
-                           intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                            startActivity(intent);
                        }
 

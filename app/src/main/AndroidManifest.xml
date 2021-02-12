@@ -24,7 +24,8 @@
             android:name=".client.ClientProfile"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.BiGBeDPharmacie.NoActionBar" />
-        <activity android:name=".pharmacie.PharmacieProfile" />
+        <activity android:name=".pharmacie.PharmacieProfile"
+            android:theme="@style/Theme.BiGBeDPharmacie.NoActionBar"/>
         <activity android:name=".AboutUsActivity" />
         <activity
             android:name=".ResetPassword"
