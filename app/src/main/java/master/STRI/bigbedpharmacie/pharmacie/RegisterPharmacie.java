@@ -124,7 +124,7 @@ public class RegisterPharmacie extends AppCompatActivity implements View.OnClick
         String mcopassword=copassword.getText().toString();
         String mlatitude=latitude.getText().toString();
         String mlongitude=longitude.getText().toString();
-        String mville=ville.getText().toString();
+        String mville=ville.getText().toString().toLowerCase();
         if (mFullname.isEmpty()){
             fullName.setError(getText(R.string.name_empty).toString());
             fullName.requestFocus();

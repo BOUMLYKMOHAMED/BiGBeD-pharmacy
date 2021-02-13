@@ -1,171 +1,242 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/app_background"
     tools:context=".AboutUsActivity">
-    <LinearLayout
-        android:id="@+id/info"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:padding="6dp"
-        android:orientation="vertical"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp">
-        <LinearLayout
-            android:id="@+id/linearLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp">
-            <ImageView
-                android:id="@+id/profil1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/boumlyk" />
-            <LinearLayout
-                android:id="@+id/text_info1"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="MOHAMED BOUMLYK"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="boumlykhassan@gmail.com"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"/>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/linearLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp">
-            <ImageView
-                android:id="@+id/profil2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/profile" />
-            <LinearLayout
-                android:id="@+id/text_info2"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="GHANDOURI ABDELKARIM"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="abdelkarimghandouri@gmail.com"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"/>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/linearLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp">
-            <ImageView
-                android:id="@+id/profil3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/profile" />
-            <LinearLayout
-                android:id="@+id/text_info3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ABDELAATI BOURZIK"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="abdelaatibourzik@gmail.com"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"/>
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="start"
-            android:orientation="horizontal"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            >
-            <ImageView
-                android:id="@+id/profil"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/profile"
-                android:layout_gravity="center"/>
-            <LinearLayout
-                android:id="@+id/text_info4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:orientation="vertical"
 
-                >
-                <TextView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:padding="6dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="MASTER STRI 2020/2019"
+                android:textColor="@color/fermee"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/black"
+                />
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/profil1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LHOUSSAINE DAOUDI"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
+                    app:srcCompat="@drawable/boumlyk" />
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/black"
+                    android:layout_margin="4dp"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/text_info1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="lhoussainedaoudi@gmail.com"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginLeft="5dp"/>
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MOHAMED BOUMLYK"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="boumlykhassan@gmail.com"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                </LinearLayout>
             </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/black"
+                />
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/profil2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/abdkarim" />
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/black"
+                    android:layout_margin="4dp"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/text_info2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="GHANDOURI ABDELKARIM"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="abdelkarimghandouri@gmail.com"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/black"
+                />
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/profil3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/abdlaati" />
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/black"
+                    android:layout_margin="4dp"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/text_info3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ABDELATI BOURZIK"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="abdelaaatibourzik@gmail.com"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/black"
+                />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/profil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/daoudi" />
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/black"
+                    android:layout_margin="4dp"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/text_info4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="LHOUSSAINE DAOUDI"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="lhoussainedaoudi@gmail.com"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/black"
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logabout"
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
-    </LinearLayout>
+
+
+    </ScrollView>
 
 
 </RelativeLayout>

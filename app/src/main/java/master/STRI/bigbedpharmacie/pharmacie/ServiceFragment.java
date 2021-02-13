@@ -45,7 +45,7 @@ public class ServiceFragment extends Fragment {
         ajouterBMed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Name = ajouterMed.getText().toString();
+                String Name = ajouterMed.getText().toString().toLowerCase();
                 String desc = ajouterMedDes.getText().toString();
 
                 if (Name.isEmpty()) {
@@ -79,7 +79,7 @@ public class ServiceFragment extends Fragment {
         ajouterBSer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String Name = ajouterSer.getText().toString();
+                String Name = ajouterSer.getText().toString().toLowerCase();
                 String desc = ajouterSerDes.getText().toString();
 
                 if (Name.isEmpty()) {

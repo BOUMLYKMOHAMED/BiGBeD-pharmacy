@@ -3,13 +3,17 @@ package master.STRI.bigbedpharmacie.pharmacie;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.MenuItemCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.Menu;
@@ -25,6 +29,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.File;
+
 import master.STRI.bigbedpharmacie.AboutUsActivity;
 import master.STRI.bigbedpharmacie.R;
 import master.STRI.bigbedpharmacie.client.ClientProfile;
@@ -39,7 +45,8 @@ public class PharmacieProfile extends AppCompatActivity {
     private View nView;
     private ActionBarDrawerToggle toggle;
     private AppBarConfiguration mAppBarConfiguration;
-    private TextView name,email;
+    private TextView name, email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,49 +57,48 @@ public class PharmacieProfile extends AppCompatActivity {
         drawer = findViewById(R.id.drawer_layoutp);
         NavigationView navigationView = findViewById(R.id.nav_viewpharmacie);
 
-        toggle =new ActionBarDrawerToggle(this,drawer,toolbar,R.string.navigation_drawer_open,
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open,
                 R.string.navigation_drawer_close);
 
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        firebaseAuth=FirebaseAuth.getInstance();
-        fstore=FirebaseFirestore.getInstance();
-        nView=navigationView.getHeaderView(0);
-        name=(TextView)nView.findViewById(R.id.namepharmacie);
-        email=(TextView)nView.findViewById(R.id.emailpharmacie);
-        String curent_id=firebaseAuth.getCurrentUser().getUid();
+        firebaseAuth = FirebaseAuth.getInstance();
+        fstore = FirebaseFirestore.getInstance();
+        nView = navigationView.getHeaderView(0);
+        name = (TextView) nView.findViewById(R.id.namepharmacie);
+        email = (TextView) nView.findViewById(R.id.emailpharmacie);
+        String curent_id = firebaseAuth.getCurrentUser().getUid();
         fstore.collection("Users").document(curent_id).get().
                 addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        String n= (String) documentSnapshot.get("fullName");
-                        String m= (String) documentSnapshot.get("Email");
+                        String n = (String) documentSnapshot.get("fullName");
+                        String m = (String) documentSnapshot.get("Email");
                         name.setText(n);
                         email.setText(m);
                     }
                 });
-        ViewPager2 viewPager2=(ViewPager2) findViewById(R.id.viewpager2);
+        ViewPager2 viewPager2 = (ViewPager2) findViewById(R.id.viewpager2);
 
         navigationView.setNavigationItemSelectedListener(item1 -> {
-            int id=item1.getItemId();
-            if (id==R.id.nav_help) {
+            int id = item1.getItemId();
+            if (id == R.id.nav_help) {
                 Intent intent = new Intent(PharmacieProfile.this, helpMe.class);
                 startActivity(intent);
 
-            }
-            else if(id==R.id.nav_language) {
+            } else if (id == R.id.nav_language) {
                 Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
                 startActivity(intent);
 
-            }
-            else if(id==R.id.nav_share){
-
-
-                // a faire
-
-            }
-            else if(id==R.id.log_out_actionC){
+            } else if (id == R.id.nav_share) {
+                ApplicationInfo api = getApplicationContext().getApplicationInfo();
+                String apkpath = api.sourceDir;
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("application/vnd.android.package-archive");
+                intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(apkpath)));
+                startActivity(Intent.createChooser(intent, "shareVia"));
+            } else if (id == R.id.log_out_actionC) {
                 firebaseAuth.signOut();
                 finish();
             }
@@ -103,49 +109,32 @@ public class PharmacieProfile extends AppCompatActivity {
 
 
         viewPager2.setAdapter(new FragmentAdapter(this));
-        TabLayout tabLayout=(TabLayout) findViewById(R.id.tablayout);
-        TabLayoutMediator tabLayoutMediator=new TabLayoutMediator(tabLayout, viewPager2,
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout);
+        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, viewPager2,
                 new TabLayoutMediator.TabConfigurationStrategy() {
-            @Override
-            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                    @Override
+                    public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
 
-                switch(position){
-                    case 0:{
-                        //tab.setText(R.string.messanger);
-                        tab.setIcon(R.drawable.ic_home);
-                        break;
+                        switch (position) {
+                            case 0: {
+                                //tab.setText(R.string.messanger);
+                                tab.setIcon(R.drawable.ic_home);
+                                break;
+                            }
+                            case 1: {
+                                //tab.setText(R.string.ajouter_un_service);
+                                tab.setIcon(R.drawable.ic_medical_services);
+                                break;
+                            }
+                            case 2: {
+                                //tab.setText(R.string.status);
+                                tab.setIcon(R.drawable.ic__status);
+                                break;
+                            }
+                        }
                     }
-                    case 1:{
-                        //tab.setText(R.string.ajouter_un_service);
-                        tab.setIcon(R.drawable.ic_medical_services);
-                        break;
-                    }
-                    case 2:{
-                        //tab.setText(R.string.status);
-                        tab.setIcon(R.drawable.ic__status);
-                        break;
-                    }
-                }
-            }
-        });
+                });
         tabLayoutMediator.attach();
 
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_pharmacie,menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id=item.getItemId();
-        switch (id){
-
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
-
 }
