@@ -87,4 +87,10 @@
     <string name="update">Update</string>
     <string name="update_profile_message">Your profile update with success</string>
     <string name="update_profile_message_error">Error</string>
+    <string name="are_you_sure">Are you sure you want to delete this</string>
+    <string name="deleting_is"> you won\'t be able to retrieve this data after deleting</string>
+    <string name="yes">Yes</string>
+    <string name="deleting">Deleting</string>
+    <string name="no">No</string>
+    <string name="there_no_item">There is no itme related to your search</string>
 </resources>

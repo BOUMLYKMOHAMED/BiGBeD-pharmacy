@@ -118,9 +118,9 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
                         }
 
                     }
-                    adapter.notifyDataSetChanged();
-                    progressBar3=(ProgressBar)findViewById(R.id.progressBar3);
-                    progressBar3.setVisibility(View.INVISIBLE);
+                        adapter.notifyDataSetChanged();
+                        progressBar3.setVisibility(View.INVISIBLE);
+
                 }
             }
         });
@@ -169,8 +169,13 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
                             }
 
                         }
-                        adapter.notifyDataSetChanged();
-                        progressBar3.setVisibility(View.INVISIBLE);
+                        if (listmed.isEmpty())
+                            Toast.makeText(DesplayPharmacieInfo.this,
+                                    getText(R.string.there_no_item).toString(),
+                                    Toast.LENGTH_LONG).show();
+
+                            adapter.notifyDataSetChanged();
+                            progressBar3.setVisibility(View.INVISIBLE);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override

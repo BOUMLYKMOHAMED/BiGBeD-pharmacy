@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -215,8 +216,14 @@ public class ClientProfile extends AppCompatActivity {
                                 listpharmacie.add(pharmacie);
                             }
                         }
-                        adapter.notifyDataSetChanged();
-                        progressBar4.setVisibility(View.INVISIBLE);
+                        if (listpharmacie.isEmpty()){
+                            Toast.makeText(ClientProfile.this,getText(R.string.there_no_item).toString(),Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(ClientProfile.this,ClientProfile.class));
+                        }
+                        else{
+                            adapter.notifyDataSetChanged();
+                            progressBar4.setVisibility(View.INVISIBLE);
+                        }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override

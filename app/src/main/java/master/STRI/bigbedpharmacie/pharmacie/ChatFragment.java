@@ -95,6 +95,13 @@ public class ChatFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        updateMedicamet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),updateService.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }

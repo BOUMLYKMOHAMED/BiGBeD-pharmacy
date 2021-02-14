@@ -87,6 +87,12 @@
     <string name="update">Mettre à jour</string>
     <string name="update_profile_message">Votre profile est mis à jour avec succée</string>
     <string name="update_profile_message_error">Erreur !!</string>
+    <string name="are_you_sure">Êtes-vous sûr de vouloir supprimer ceci</string>
+    <string name="deleting_is">vous ne récupérerez pas ces données après la suppression</string>
+    <string name="yes">Oui</string>
+    <string name="deleting">Suppression</string>
+    <string name="no">Non</string>
+    <string name="there_no_item">Il n\'y a pas d\'itme lié à votre recherche</string>
 
 
 </resources>
