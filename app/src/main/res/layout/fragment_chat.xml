@@ -7,81 +7,215 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="10dp"
-            >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:layout_margin="4dp"
-                android:src="@drawable/logo"
-                android:layout_gravity="center"/>
-            <TextView
-                android:background="@drawable/pip_back"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:layout_gravity="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:id="@+id/setNom"
-                android:padding="4dp"
-                />
-            <TextView
-                android:background="@drawable/pip_back"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="4dp"
+                    android:src="@drawable/logo" />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="4dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/nomdisplay"
+                            android:padding="4dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                        <TextView
+                            android:id="@+id/setNom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="4dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/emaildesplay"
+                            android:padding="4dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                        <TextView
+                            android:id="@+id/setemail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:text="@string/telephonedesplay"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                        <TextView
+                            android:id="@+id/setTele"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="4dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/villedesplay"
+                            android:padding="4dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                        <TextView
+                            android:id="@+id/setville"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_margin="4dp"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:id="@+id/setemail"
-                android:padding="4dp"
-                />
-            <TextView
-                android:layout_margin="4dp"
-                android:background="@drawable/pip_back"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:id="@+id/setTele"
-                android:padding="4dp"
-                />
-            <TextView
-                android:layout_margin="4dp"
-                android:background="@drawable/pip_back"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="@string/latitudedisplay"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                    <TextView
+                        android:id="@+id/setlatitude"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="@string/longitudedesplay"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                    <TextView
+                        android:id="@+id/setlongitude"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:id="@+id/setlatitude"
-                android:padding="4dp"
-                />
-            <TextView
-                android:layout_margin="4dp"
-                android:background="@drawable/pip_back"
+                android:layout_height="2dp"
+                android:background="@color/black" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:id="@+id/setlongitude"
-                android:padding="4dp"
-                />
-            <TextView
-                android:layout_margin="4dp"
-                android:background="@drawable/pip_back"
-                android:layout_width="match_parent"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:id="@+id/setville"
-                android:padding="4dp"
-                />
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_gravity="bottom"
+                android:padding="6dp"
+                >
+                <TextView
+                    android:id="@+id/updateMedicament"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="6dp"
+                    android:layout_gravity="start"
+                    android:gravity="center"
+                    android:background="@drawable/button_background"
+                    android:text="@string/update_service_and_medicament"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:layout_marginEnd="@dimen/fab_margin" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/fab_margin"
+                    android:id="@+id/updateprofile"
+                    android:padding="6dp"
+                    android:text="@string/update_profile"
+                    android:layout_gravity="end"
+                    android:gravity="center"
+                    android:background="@drawable/button_background"
+                    android:layout_marginStart="@dimen/fab_margin" />
+
+            </LinearLayout>
         </LinearLayout>
 
         <ProgressBar
@@ -90,9 +224,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:visibility="gone"/>
+            android:visibility="gone" />
     </RelativeLayout>
-
 
 
 </FrameLayout>

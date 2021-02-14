@@ -11,6 +11,7 @@ import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -36,18 +37,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
     private ProgressBar progressBar;
+    private CheckBox checkBox;
 
     @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        fAuth=FirebaseAuth.getInstance();
+        fStore=FirebaseFirestore.getInstance();
         email=(EditText)findViewById(R.id.email);
         password=(EditText)findViewById(R.id.password);
 
-        fAuth=FirebaseAuth.getInstance();
-        fStore=FirebaseFirestore.getInstance();
+        checkBox=(CheckBox)findViewById(R.id.checkBox);
         error=(TextView)findViewById(R.id.error);
 
         signin=(TextView)findViewById(R.id.connexionB);
@@ -57,6 +59,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         passwordForget=(TextView)findViewById(R.id.passwordForget);
         passwordForget.setOnClickListener(this);
         progressBar=(ProgressBar)findViewById(R.id.IprogressBar);
+        
+        if (fAuth.getCurrentUser()!=null){
+            String userid=fAuth.getCurrentUser().getUid();
+            fStore.collection("Users").document(userid).
+                    get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    if (documentSnapshot.get("isPharmacie")!=null){
+                        Intent intent=new Intent(MainActivity.this, PharmacieProfile.class);
+                        startActivity(intent);
+
+                    }
+                    else{
+                        Intent intent=new Intent(MainActivity.this, ClientProfile.class);
+                        startActivity(intent);
+                    }
+
+                }
+            });
+
+        }
 
     }
     @Override
@@ -137,14 +160,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                    @Override
                    public void onSuccess(DocumentSnapshot documentSnapshot) {
                        if (documentSnapshot.get("isPharmacie")!=null){
-                           Toast.makeText(MainActivity.this,"bien aurtentifie",Toast.LENGTH_LONG).show();
+                           Toast.makeText(MainActivity.this,getText(R.string.bienautentifi).toString(),Toast.LENGTH_LONG).show();
                            progressBar.setVisibility(View.INVISIBLE);
                            Intent intent=new Intent(MainActivity.this, PharmacieProfile.class);
                            startActivity(intent);
 
                        }
                        else{
-                           Toast.makeText(MainActivity.this,"bien aurtentifie",Toast.LENGTH_LONG).show();
+                           Toast.makeText(MainActivity.this,getText(R.string.bienautentifi).toString(),Toast.LENGTH_LONG).show();
                            progressBar.setVisibility(View.INVISIBLE);
                            Intent intent=new Intent(MainActivity.this, ClientProfile.class);
                            startActivity(intent);
@@ -160,5 +183,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                Toast.makeText(this,getText(R.string.error).toString(),Toast.LENGTH_LONG).show();
            }
         });
+    }
+
+    @Override
+    protected void onStart() {
+            super.onStart();
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        //super.onBackPressed();
     }
 }

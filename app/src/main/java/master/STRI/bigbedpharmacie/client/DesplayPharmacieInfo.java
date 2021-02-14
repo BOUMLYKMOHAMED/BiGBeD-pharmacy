@@ -201,8 +201,11 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
                 return false;
             }
         });
-
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

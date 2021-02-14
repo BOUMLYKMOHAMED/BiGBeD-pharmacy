@@ -19,15 +19,15 @@
     <string name="ville">Ville</string>
     <string name="longitude" translatable="false">Longitude</string>
     <string name="latitude" translatable="false">Latitude</string>
-    <string name="email_empty">Remplissez votre Email !</string>
+    <string name="email_empty">Entrez votre Email !</string>
     <string name="email_error">Email est invalide !</string>
-    <string name="name_empty">Remplissez votre nom !</string>
-    <string name="tel_empty">N° Téléphone est obligatoire !</string>
+    <string name="name_empty">Entrez votre nom !</string>
+    <string name="tel_empty">Entrez votre N° Téléphone</string>
     <string name="password_empty">Entrez votre mot de passe !</string>
     <string name="password_incorect">Confirmer le mot de passe</string>
     <string name="password_small">"Mot de passe est faible ! "</string>
     <string name="userCreate">Inscription réussite</string>
-    <string name="latitude_empty">Latitude est obligatoire</string>
+    <string name="latitude_empty">Entrer latitude</string>
     <string name="longitude_empty">Entrer longitude</string>
     <string name="ville_empty">Entrer la ville</string>
     <string name="message_error_auth">Email ou mot de passe est incorrect ! </string>
@@ -36,7 +36,6 @@
     <string name="envoyer">Envoyer</string>
     <string name="language">Langage</string>
     <string name="qui_somme_nous">"À propos de nous "</string>
-    <string name="messanger">Message</string>
     <string name="ajouter_un_service">Ajouter un service</string>
     <string name="status">Statut</string>
     <string name="description">Description ...</string>
@@ -63,21 +62,31 @@
     <string name="profile">Profil</string>
     <string name="help">Aidez-moi </string>
     <string name="share">Partager</string>
-    <string name="active">Actif</string>
-    <string name="inactive">Inactive</string>
+    <string name="active">Ouverte</string>
+    <string name="inactive">Fermée</string>
     <string name="title_activity_main2">Profile client</string>
     <string name="action_settings">Paramètres</string>
     <string name="menu_home">Accueil</string>
-
     <string name="search_for_medicament">Rechercher un médicament</string>
-
     <string name="service_d_assistance">Si vous avez besoin d\'aide, contactez notre service d\'assistance</string>
     <string name="tele">0622505912</string>
-    <string name="verify_your_email">verifiy votre Email address</string>
+    <string name="verify_your_email">verifiez votre Email address</string>
     <string name="email_invalid">address email est invalid</string>
     <string name="error">Erreur !!</string>
     <string name="medicament">Medicament</string>
     <string name="service">Service</string>
+    <string name="bienautentifi">Bien authentifie</string>
+    <string name="latitudedisplay">Latitude :</string>
+    <string name="longitudedesplay">Longitude :</string>
+    <string name="update_service_and_medicament">mettre à jour un Medicament</string>
+    <string name="update_profile">Mettre à jour</string>
+    <string name="nomdisplay">Nom :</string>
+    <string name="telephonedesplay">Telephone :</string>
+    <string name="villedesplay">Ville :</string>
+    <string name="emaildesplay">Email :</string>
+    <string name="update">Mettre à jour</string>
+    <string name="update_profile_message">Votre profile est mis à jour avec succée</string>
+    <string name="update_profile_message_error">Erreur !!</string>
 
 
 </resources>

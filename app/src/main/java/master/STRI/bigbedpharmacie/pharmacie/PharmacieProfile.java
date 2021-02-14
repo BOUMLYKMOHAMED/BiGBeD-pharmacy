@@ -32,6 +32,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.io.File;
 
 import master.STRI.bigbedpharmacie.AboutUsActivity;
+import master.STRI.bigbedpharmacie.MainActivity;
 import master.STRI.bigbedpharmacie.R;
 import master.STRI.bigbedpharmacie.client.ClientProfile;
 import master.STRI.bigbedpharmacie.helpMe;
@@ -100,6 +101,7 @@ public class PharmacieProfile extends AppCompatActivity {
                 startActivity(Intent.createChooser(intent, "shareVia"));
             } else if (id == R.id.log_out_actionC) {
                 firebaseAuth.signOut();
+                startActivity(new Intent(this, MainActivity.class));
                 finish();
             }
             drawer.closeDrawer(GravityCompat.START);
@@ -136,5 +138,9 @@ public class PharmacieProfile extends AppCompatActivity {
                 });
         tabLayoutMediator.attach();
 
+    }
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 }

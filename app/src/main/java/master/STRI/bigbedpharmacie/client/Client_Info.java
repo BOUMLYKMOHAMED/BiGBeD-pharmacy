@@ -4,7 +4,6 @@ import com.google.firebase.firestore.Exclude;
 
 public class Client_Info {
 
-
     @Exclude private String userId;
 
     public String getUserId() {
@@ -16,6 +15,7 @@ public class Client_Info {
     }
 
     private String fullName,email,Telephone;
+
     public Client_Info(){}
     public Client_Info(String fullName,String email,String Telephone){
         this.fullName=fullName;

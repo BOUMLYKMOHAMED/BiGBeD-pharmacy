@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BiGBeDPharmacie">
-        <activity android:name=".helpMe"></activity>
+        <activity android:name=".pharmacie.updatProfile"></activity>
+        <activity android:name=".helpMe" />
         <activity
             android:name=".client.DesplayPharmacieInfo"
             android:parentActivityName=".client.ClientProfile">
@@ -24,8 +25,9 @@
             android:name=".client.ClientProfile"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.BiGBeDPharmacie.NoActionBar" />
-        <activity android:name=".pharmacie.PharmacieProfile"
-            android:theme="@style/Theme.BiGBeDPharmacie.NoActionBar"/>
+        <activity
+            android:name=".pharmacie.PharmacieProfile"
+            android:theme="@style/Theme.BiGBeDPharmacie.NoActionBar" />
         <activity android:name=".AboutUsActivity" />
         <activity
             android:name=".ResetPassword"

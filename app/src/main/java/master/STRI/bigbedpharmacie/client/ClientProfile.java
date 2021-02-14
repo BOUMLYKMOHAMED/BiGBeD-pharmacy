@@ -138,6 +138,7 @@ public class ClientProfile extends AppCompatActivity {
                 startActivity(Intent.createChooser(intent, "shareVia"));
             } else if (id == R.id.log_out_actionC) {
                 fauth.signOut();
+                startActivity(new Intent(this, MainActivity.class));
                 finish();
             }
 
@@ -226,7 +227,6 @@ public class ClientProfile extends AppCompatActivity {
         });
 
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -234,5 +234,11 @@ public class ClientProfile extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        onStart();
+        //super.onBackPressed();
     }
 }
