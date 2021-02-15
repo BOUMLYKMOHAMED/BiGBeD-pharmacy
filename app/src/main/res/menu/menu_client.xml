@@ -20,5 +20,6 @@
     </group>
     <item android:title="@string/log_out"
         android:id="@+id/log_out_actionC"
+        android:icon="@drawable/ic_logout"
         />
 </menu>

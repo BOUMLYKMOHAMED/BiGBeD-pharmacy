@@ -7,12 +7,15 @@ import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -45,7 +48,7 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
     private FirebaseAuth firebaseAuth;
     private ProgressBar progressBar3;
     private TextView texSetnom;
-    private ImageView search,map,callMe;
+    private ImageView search,map,callMe,messageme;
     private RecyclerView recycleViewMedicament;
     private double latitude,longitude;
     private String pharmacyId;
@@ -53,6 +56,9 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_desplay_pharmacie_info);
         progressBar3=(ProgressBar)findViewById(R.id.progressBar3);
         progressBar3.setVisibility(View.VISIBLE);
@@ -68,6 +74,7 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
         search=(ImageView)findViewById(R.id.search);
         map=(ImageView)findViewById(R.id.maps);
         callMe=(ImageView)findViewById(R.id.callMe);
+        messageme=(ImageView)findViewById(R.id.messageme);
         map.setOnClickListener(this);
         search.setOnClickListener(this);
 
@@ -78,6 +85,15 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
                 Intent intent=new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:"+tele));
                 startActivity(intent);
+            }
+        });
+        messageme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email=pharmacy.getEmail();
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse("mailto:"+email));
+                startActivity(Intent.createChooser(emailIntent, "Send feedback"));
             }
         });
 
@@ -118,10 +134,9 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
                         }
 
                     }
-                        adapter.notifyDataSetChanged();
-                        progressBar3.setVisibility(View.INVISIBLE);
-
                 }
+                adapter.notifyDataSetChanged();
+                progressBar3.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -131,10 +146,18 @@ public class DesplayPharmacieInfo extends AppCompatActivity implements View.OnCl
         int id=v.getId();
         switch(id){
             case R.id.maps:
+                /*
                 Intent intent=new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("geo:"+latitude+","+longitude));
                 Intent choiser=intent.createChooser(intent,"Launch Maps");
                 startActivity(choiser);
+
+                 */
+                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                        Uri.parse("http://maps.google.com/maps?daddr="+longitude+","+latitude));
+                intent.setComponent(new ComponentName("com.google.android.apps.maps",
+                        "com.google.android.maps.MapsActivity"));
+                startActivity(intent);
                 break;
         }
 

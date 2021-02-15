@@ -72,19 +72,31 @@
         android:layout_height="wrap_content"
         android:visibility="invisible"/>
     <LinearLayout
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="4dp"
+        android:padding="10dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/oval_button"
-        android:layout_margin="@dimen/fab_margin">
-        <ImageView
-            android:id="@+id/callMe"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="6dp"
-            android:src="@drawable/ic_call"/>
+        android:layout_alignParentBottom="true">
+            <ImageView
+                android:id="@+id/messageme"
+                android:layout_width="55dp"
+                android:layout_margin="2dp"
+                android:layout_height="55dp"
+                android:background="@drawable/oval_button"
+                android:padding="8dp"
+                android:src="@drawable/ic_mail"/>
+            <ImageView
+                android:id="@+id/callMe"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="2dp"
+                android:padding="8dp"
+                android:background="@drawable/oval_button"
+                android:src="@drawable/ic_call"/>
     </LinearLayout>
+
 
 </RelativeLayout>
