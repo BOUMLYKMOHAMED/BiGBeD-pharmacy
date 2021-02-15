@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Patterns;
@@ -35,7 +36,7 @@ import master.STRI.bigbedpharmacie.pharmacie.PharmacieProfile;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText email,password;
-    private TextView signin, signup,error,passwordForget;
+    private TextView signin, signup,error,passwordForget,privacy;
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
@@ -60,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         signin=(TextView)findViewById(R.id.connexionB);
         signin.setOnClickListener(this);
+        privacy=(TextView)findViewById(R.id.privacy);
+        privacy.setOnClickListener(this);
         signup=(TextView)findViewById(R.id.inscrire);
         signup.setOnClickListener(this);
         passwordForget=(TextView)findViewById(R.id.passwordForget);
@@ -127,6 +130,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.passwordForget:
                 startActivity(new Intent(this,ResetPassword.class));
                 break;
+            case R.id.privacy:
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.url_privacy)));
+                startActivity(browserIntent);
         }
 
     }
