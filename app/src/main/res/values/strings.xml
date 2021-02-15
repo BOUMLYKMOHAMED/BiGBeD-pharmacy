@@ -34,7 +34,7 @@
     <string name="entrer_votre_email">Entrer votre Email</string>
     <string name="avoir_un_nouveau_mot_de_passe">Entrer votre Email pour un nouveau mot de passe</string>
     <string name="envoyer">Envoyer</string>
-    <string name="language">Langage</string>
+    <string name="language">Langue</string>
     <string name="qui_somme_nous">"À propos de nous "</string>
     <string name="ajouter_un_service">Ajouter un service</string>
     <string name="status">Statut</string>
@@ -79,12 +79,12 @@
     <string name="latitudedisplay">Latitude :</string>
     <string name="longitudedesplay">Longitude :</string>
     <string name="update_service_and_medicament">mettre à jour un Medicament</string>
-    <string name="update_profile">Mettre à jour</string>
+    <string name="update_profile">Mis à jour</string>
     <string name="nomdisplay">Nom :</string>
     <string name="telephonedesplay">Telephone :</string>
     <string name="villedesplay">Ville :</string>
     <string name="emaildesplay">Email :</string>
-    <string name="update">Mettre à jour</string>
+    <string name="update">Mis à jour</string>
     <string name="update_profile_message">Votre profile est mis à jour avec succée</string>
     <string name="update_profile_message_error">Erreur !!</string>
     <string name="are_you_sure">Êtes-vous sûr de vouloir supprimer ceci</string>

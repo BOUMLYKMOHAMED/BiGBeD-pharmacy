@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BiGBeDPharmacie">
-        <activity android:name=".pharmacie.updateService"></activity>
+        <activity android:name=".client.updateClientProfile"></activity>
+        <activity android:name=".pharmacie.updateService" />
         <activity android:name=".pharmacie.updatProfile" />
         <activity android:name=".helpMe" />
         <activity

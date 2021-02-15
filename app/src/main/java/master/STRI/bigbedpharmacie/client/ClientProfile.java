@@ -8,6 +8,8 @@ import android.provider.Settings;
 import android.view.MenuItem;
 import android.view.Menu;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,6 +58,8 @@ public class ClientProfile extends AppCompatActivity {
     private List<Pharmacy_info> listpharmacie;
     public ProgressBar progressBar4;
 
+    Client_Info clientInfo;
+
     private TextView name, email;
     private FirebaseFirestore fstore;
     private FirebaseAuth fauth;
@@ -66,6 +70,9 @@ public class ClientProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -119,6 +126,12 @@ public class ClientProfile extends AppCompatActivity {
         nView = navigationView.getHeaderView(0);
         name = (TextView) nView.findViewById(R.id.nameclient);
         email = (TextView) nView.findViewById(R.id.emailclient);
+        nView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ClientProfile.this,updateClientProfile.class));
+            }
+        });
 
         navigationView.setNavigationItemSelectedListener(item1 -> {
             int id = item1.getItemId();
@@ -129,7 +142,6 @@ public class ClientProfile extends AppCompatActivity {
             } else if (id == R.id.nav_languageC) {
                 Intent intent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
                 startActivity(intent);
-
             } else if (id == R.id.nav_shareC) {
                 ApplicationInfo api = getApplicationContext().getApplicationInfo();
                 String apkpath = api.sourceDir;
@@ -147,6 +159,7 @@ public class ClientProfile extends AppCompatActivity {
 
             return true;
         });
+
         String id = fauth.getCurrentUser().getUid();
         fstore.collection("Users").document(id).get().
                 addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -154,6 +167,7 @@ public class ClientProfile extends AppCompatActivity {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         String n = (String) documentSnapshot.get("fullName");
                         String m = (String) documentSnapshot.get("Email");
+                        String t = (String) documentSnapshot.get("phone");
                         name.setText(n);
                         email.setText(m);
                     }
